@@ -2,30 +2,29 @@ import React, { Component } from 'react';
 import './App.css'
 import Searches from './Searches.js'
 
-const searches = [
-  {
-    name: "Home",
-    address: "19 Wellesley Road, Maplewood, NJ 07040"
-  },
-  {
-    name: "Dad's house",
-    address: "7280 Forest Ridge Circle, Castle Pines, CO 80108"
-  },
-  {
-    name: "Jim's house",
-    address: "222 Wayside Drive, Warrington, PA 18976"
-  },
-  {
-    name: "Mary's apartment",
-    address: "1040 W. Adams St., Apt. 411, Chicago, IL 60607"
-  }
-]
-
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      searches: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/searches')
+      .then(resp => resp.json())
+      .then(searches => this.setState({ searches }))
+  }
+
   render() {
+
+    console.log(this.state)
+
     return (
       <div className="App">
-        <Searches searches={searches} />
+        <Searches searches={this.state.searches} />
       </div>
     );
   }
