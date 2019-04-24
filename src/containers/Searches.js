@@ -2,7 +2,7 @@ import React from 'react';
 import './Searches.css'
 
 const Searches = (props) => (
-  <div>
+  <div className="SearchesContainer">
     <h1>Searches</h1>
     {props.searches.map(search =>
       <div className="SearchCard">
