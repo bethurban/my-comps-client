@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import './Searches.css';
 import SearchForm from './SearchForm';
 import SearchCard from '../components/SearchCard';
+import { getSearches } from '../actions/searches';
 
 class Searches extends Component  {
 
   componentDidMount() {
-     
+    this.props.getSearches()
   }
 
   render() {
@@ -28,4 +29,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Searches);
+export default connect(mapStateToProps, { getSearches })(Searches);
