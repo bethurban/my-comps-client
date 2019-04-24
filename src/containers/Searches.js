@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Searches.css';
 import SearchForm from './SearchForm';
 import SearchCard from '../components/SearchCard';
 
 class Searches extends Component  {
+
+  componentDidMount() {
+     
+  }
+
   render() {
     return (
       <div className="SearchesContainer">
@@ -15,4 +21,11 @@ class Searches extends Component  {
   }
 }
 
-export default Searches;
+const mapStateToProps = (state) => {
+  return ({
+    searches: state.searches
+  })
+}
+
+
+export default connect(mapStateToProps)(Searches);
