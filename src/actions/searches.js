@@ -13,7 +13,7 @@ export const getSearches = () => {
   return dispatch => (
     fetch(`${API_URL}/searches`)
       .then(resp => resp.json())
-      .then(searches => dispatch(setSearches))
+      .then(searches => dispatch(setSearches(searches)))
       .catch(error => console.log(error))
   )
 }
