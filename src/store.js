@@ -5,18 +5,10 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
-
-const searchesReducer  = (state = [], action) => {
-  switch(action.type) {
-    case 'GET_SEARCHES_SUCCESS':
-      return action.searches;
-    default:
-      return state;
-  }
-}
+import searches from './reducers/searches';
 
 const reducers = combineReducers({
-  searches: searchesReducer
+  searches
 });
 const middleware = [thunk];
 
