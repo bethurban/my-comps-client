@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css'
 import Searches from './Searches.js'
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 class App extends Component {
 
   constructor(props) {
@@ -13,14 +15,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/searches')
+    fetch(`${API_URL}/searches`)
       .then(resp => resp.json())
       .then(searches => this.setState({ searches }))
   }
 
   render() {
 
-    console.log(this.state)
+    console.log("This is the state:", this.state)
 
     return (
       <div className="App">

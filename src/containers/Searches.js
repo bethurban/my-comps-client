@@ -5,7 +5,7 @@ const Searches = (props) => (
   <div className="SearchesContainer">
     <h1>Searches</h1>
     {props.searches.map(search =>
-      <div className="SearchCard">
+      <div key={search.id} className="SearchCard">
         <h3>{search.name}</h3>
         <p>{search.address}</p>
       </div>
