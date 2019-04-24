@@ -1,5 +1,6 @@
 import {
   createStore,
+  compose,
   applyMiddleware,
   combineReducers
 } from 'redux';
@@ -14,5 +15,14 @@ const searchesReducer  = (state = [], action) => {
   }
 }
 
-let searches = searchesReducer();
-console.log(search) = []
+const reducers = combineReducers({
+  searches: searchesReducer
+});
+const middleware = [thunk];
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export default createStore(
+  reducers,
+  composeEnhancer(applyMiddleware(...middleware)),
+);
