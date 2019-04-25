@@ -14,7 +14,7 @@ class Homes extends Component  {
   render() {
     return (
       <div className="HomesContainer">
-        <h1>Homes</h1>
+        <h2>Saved searches</h2>
         <HomeForm />
         {this.props.homes.map(home => <HomeCard key={home.id} home={home} />)}
 

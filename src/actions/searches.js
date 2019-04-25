@@ -1,7 +1,5 @@
 // import { resetSearchForm } from './searchForm';
 
-// const API_URL = process.env.REACT_APP_API_URL;
-
 // ** Action Creators **
 const setSearches = searches => {
   return {
@@ -20,9 +18,10 @@ const setSearches = searches => {
 // ** Async Actions **
 export const getSearches = () => {
   return dispatch => (
-    fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=52635337&count=5')
-      .then(resp => resp.json())
-      .then(searches => dispatch(setSearches(searches)))
+    fetch('https://crossorigin.me/http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=52635337&count=5')
+      .then(resp => console.log(resp))
+      // .then(resp => resp.json())
+      // .then(searches => dispatch(setSearches(searches)))
       // .then(resetSearchForm())
       .catch(error => console.log(error))
   )
