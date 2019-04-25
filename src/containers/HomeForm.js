@@ -39,7 +39,7 @@
                   type="text"
                   onChange={this.handleOnChange}
                   name="address"
-                  value={address }
+                  value={address}
                 />
             </div>
             <button type="submit">Save home</button>

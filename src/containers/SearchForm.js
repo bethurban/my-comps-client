@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateSearchFormData } from '../actions/searchForm';
+import { createSearch } from '../actions/searches'
 
 class SearchForm extends Component {
+
+  handleOnChange = event => {
+    const { name, value } = event.target;
+    const currentSearchFormData = Object.assign({}, this.props.searchFormData, {
+      [name]: value
+    })
+    this.props.updateSearchFormData(currentSearchFormData)
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+    this.props.createSearch(this.props.searchFormData)
+  }
+
   render() {
+    const { street, citystate } = this.props.searchFormData;
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label>Street: </label>
+            <label htmlFor="street">Street: </label>
             <input
               type="text"
+              onChange={this.handleOnChange}
               name="street"
+              value={street}
             />
           </div>
           <div>
-            <label>City, state: </label>
+            <label htmlFor="citystate">City, state: </label>
             <input
               type="text"
+              onChange={this.handleOnChange}
               name="citystate"
+              value={citystate}
             />
           </div>
           <button type="submit">Search for comparable properties</button>

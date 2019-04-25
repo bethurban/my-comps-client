@@ -7,10 +7,14 @@ import {
 import thunk from 'redux-thunk';
 import homes from './reducers/homes';
 import homeFormData from './reducers/homeFormData';
+import searches from './reducers/searches';
+import searchFormData from './reducers/searchFormData';
 
 const reducers = combineReducers({
   homes,
-  homeFormData
+  homeFormData,
+  searches,
+  searchFormData
 });
 const middleware = [thunk];
 
