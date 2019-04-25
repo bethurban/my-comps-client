@@ -1,31 +1,31 @@
   import React, { Component } from 'react';
   import { connect } from 'react-redux';
-  import { updateSearchFormData } from '../actions/searchForm';
-  import { createSearch } from '../actions/searches'
+  import { updateHomeFormData } from '../actions/homeForm';
+  import { createHome } from '../actions/homes'
 
-  class SearchForm extends Component {
+  class HomeForm extends Component {
 
     handleOnChange = event => {
       const { name, value } = event.target;
-      const currentSearchFormData = Object.assign({}, this.props.searchFormData, {
+      const currentHomeFormData = Object.assign({}, this.props.homeFormData, {
         [name]: value
       })
-      this.props.updateSearchFormData(currentSearchFormData)
+      this.props.updateHomeFormData(currentHomeFormData)
     }
 
     handleOnSubmit = event => {
       event.preventDefault()
-      this.props.createSearch(this.props.searchFormData)
+      this.props.createHome(this.props.homeFormData)
     }
 
     render() {
-      const { name, address } = this.props.searchFormData;
+      const { name, address } = this.props.homeFormData;
       return(
         <div>
-          <h4>Save a new search</h4>
+          <h4>Save a new home</h4>
           <form onSubmit={this.handleOnSubmit}>
             <div>
-              <label htmlFor="name">Name your search: </label>
+              <label htmlFor="name">Name your home: </label>
               <input
                 type="text"
                 onChange={this.handleOnChange}
@@ -42,7 +42,7 @@
                   value={address }
                 />
             </div>
-            <button type="submit">Save search</button>
+            <button type="submit">Save home</button>
           </form>
         </div>
       );
@@ -51,11 +51,11 @@
 
   const mapStateToProps = state => {
     return {
-      searchFormData: state.searchFormData
+      homeFormData: state.homeFormData
     }
   }
 
   export default connect(mapStateToProps, {
-    updateSearchFormData,
-    createSearch
-   })(SearchForm);
+    updateHomeFormData,
+    createHome
+  })(HomeForm);

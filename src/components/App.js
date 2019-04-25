@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css'
-import Searches from '../containers/Searches.js'
+import Homes from '../containers/Homes.js'
 
 const App = () => (
   <div className="App">
-    <Searches />
+    <Homes />
   </div>
 )
 
