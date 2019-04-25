@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 class SearchForm extends Component {
   render() {
@@ -27,4 +27,10 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+const mapStateToProps = state => {
+  return {
+    searchFormData: state.searchFormData
+  }
+}
+
+export default connect(mapStateToProps)(SearchForm);
