@@ -1,3 +1,5 @@
+import { resetSearchForm } from './searchForm';
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 // ** Action Creators **
@@ -35,7 +37,10 @@ export const createSearch = search => {
       body: JSON.stringify(search)
     })
       .then(resp => resp.json())
-      .then(search => dispatch(addSearch(search)))
+      .then(search => {
+        dispatch(addSearch(search))
+        dispatch(resetSearchForm( ))
+      })
       .catch(error => console.log(error))
   }
 }
