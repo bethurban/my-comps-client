@@ -78,3 +78,5 @@ To change routes to react-router
 To plan out Google Maps inclusion
 To sort out CSS to structure page correctly
 New app name?
+Form validations and errors
+Sign up (Google?)
