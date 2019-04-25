@@ -1,4 +1,4 @@
-import { resetSearchForm } from './searchForm';
+// import { resetSearchForm } from './searchForm';
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
@@ -10,12 +10,12 @@ const setSearches = searches => {
   }
 }
 
-const addSearch = search => {
-  return {
-    type: 'CREATE_SEARCH_SUCCESS',
-    search
-  }
-}
+// const addSearch = search => {
+//   return {
+//     type: 'CREATE_SEARCH_SUCCESS',
+//     search
+//   }
+// }
 
 // ** Async Actions **
 export const getSearches = () => {
@@ -23,10 +23,11 @@ export const getSearches = () => {
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=52635337&count=5')
       .then(resp => resp.json())
       .then(searches => dispatch(setSearches(searches)))
+      // .then(resetSearchForm())
       .catch(error => console.log(error))
   )
 }
-
+//
 // export const createSearch = search => {
 //   return dispatch => {
 //     return fetch(`${API_URL}/homes`, {

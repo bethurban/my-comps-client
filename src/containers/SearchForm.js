@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSearchFormData } from '../actions/searchForm';
-import { createSearch } from '../actions/searches'
+// import { createSearch } from '../actions/searches'
 
 class SearchForm extends Component {
 
@@ -13,16 +13,16 @@ class SearchForm extends Component {
     this.props.updateSearchFormData(currentSearchFormData)
   }
 
-  handleOnSubmit = event => {
-    event.preventDefault()
-    this.props.createSearch(this.props.searchFormData)
-  }
+  // handleOnSubmit = event => {
+  //   event.preventDefault()
+  //   this.props.createSearch(this.props.searchFormData)
+  // }
 
   render() {
     const { street, citystate } = this.props.searchFormData;
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit}>
+        <form>
           <div>
             <label htmlFor="street">Street: </label>
             <input
@@ -54,4 +54,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SearchForm);
+export default connect(mapStateToProps, { updateSearchFormData })(SearchForm);

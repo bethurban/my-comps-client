@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
+import { getSearches } from '../actions/searches';
 
 class Searches extends Component {
   render() {
@@ -20,4 +21,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Searches);
+export default connect(mapStateToProps, { getSearches })(Searches);
