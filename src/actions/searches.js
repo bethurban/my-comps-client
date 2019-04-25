@@ -8,6 +8,13 @@ const setSearches = searches => {
   }
 }
 
+const addSearch = search => {
+  return {
+    type: 'CREATE_SEARCH_SUCCESS',
+    search
+  }
+}
+
 // ** Async Actions **
 export const getSearches = () => {
   return dispatch => (
@@ -28,8 +35,7 @@ export const createSearch = search => {
       body: JSON.stringify(search)
     })
       .then(resp => resp.json())
-      .then(search => {
-        debugger})
+      .then(search => dispatch(addSearch(search)))
       .catch(error => console.log(error))
   }
 }
