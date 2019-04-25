@@ -15,8 +15,9 @@ class Homes extends Component  {
     return (
       <div className="HomesContainer">
         <h1>Homes</h1>
-        {this.props.homes.map(home => <HomeCard key={home.id} home={home} />)}
         <HomeForm />
+        {this.props.homes.map(home => <HomeCard key={home.id} home={home} />)}
+
       </div>
     );
   }
