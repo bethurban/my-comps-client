@@ -6,9 +6,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import searches from './reducers/searches';
+import searchFormData from './reducers/searchFormData';
 
 const reducers = combineReducers({
-  searches
+  searches,
+  searchFormData
 });
 const middleware = [thunk];
 

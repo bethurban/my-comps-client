@@ -17,3 +17,19 @@ export const getSearches = () => {
       .catch(error => console.log(error))
   )
 }
+
+export const createSearch = search => {
+  return dispatch => {
+    return fetch(`${API_URL}/searches`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(search)
+    })
+      .then(resp => resp.json())
+      .then(search => {
+        debugger})
+      .catch(error => console.log(error))
+  }
+}
