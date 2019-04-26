@@ -18,15 +18,10 @@ const setSearches = searches => {
 // ** Async Actions **
 export const getSearches = () => {
   return dispatch => (
-    fetch('http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&state=nj', { mode: 'no-cors' })
-      .then(response => response.text())
-      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-      .then(data => console.log(data))
-    //   .then(resp => console.log(resp))
-    // //   // .then(resp => resp.json())
-    // //   // .then(searches => dispatch(setSearches(searches)))
-    // //   // .then(resetSearchForm())
-    //   .catch(error => console.log(error))
+    fetch('http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&state=nj')
+      .then(response => response.json())
+      .then(searches => dispatch(setSearches(searches)))
+      .catch(error => console.log(error))
   )
 }
 //
