@@ -61,7 +61,6 @@ export const getSearches = () => {
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
       .then(xml => JSON.stringify(xmlToJson(xml)))
-      .then(result => console.log("results:", result))
       .then(searches => dispatch(setSearches(searches)))
       .catch(error => console.log(error))
   )
