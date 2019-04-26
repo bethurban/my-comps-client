@@ -60,7 +60,7 @@ export const getSearches = () => {
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=1')
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => JSON.stringify(xmlToJson(xml)))
+      // .then(xml => JSON.stringify(xmlToJson(xml)))
       .then(searches => dispatch(setSearches(searches)))
       .catch(error => console.log(error))
   )

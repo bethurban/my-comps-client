@@ -5,6 +5,7 @@ import SearchCard from '../components/SearchCard';
 
 class Searches extends Component {
   render() {
+    debugger
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
