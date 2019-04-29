@@ -12,7 +12,7 @@ class Searches extends Component {
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
-        <SearchCard street={this.props.searches} />
+        <SearchCard address={this.props.searches} />
 
       </div>
 
