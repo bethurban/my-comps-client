@@ -60,11 +60,18 @@ export const getSearches = () => {
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=1')
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-			.then(xml => xml.getElementsByTagName("principal")[0].childNodes[2].childNodes[0].innerHTML)
-
+			.then(xml => xml.getElementsByTagName("principal")[0])
+			.then(xml => {
+				var street = xml.childNodes[2].childNodes[0].innerHTML
+				var city = xml.childNodes[2].childNodes[2].innerHTML
+				var state = xml.childNodes[2].childNodes[3].innerHTML
+				var zip = xml.childNodes[2].childNodes[1].innerHTML
+				var address = street + " " + city + ", " + state + " " + zip
+				return address
+			})
       // .then(xml => JSON.stringify(xmlToJson(xml)))
 			// .then(string => JSON.parse(string))
-      .then(search => dispatch(setSearches(search)))
+      .then(address => dispatch(setSearches(address)))
       .catch(error => console.log(error))
   )
 }
