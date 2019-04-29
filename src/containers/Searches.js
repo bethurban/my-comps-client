@@ -10,6 +10,9 @@ class Searches extends Component {
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
+        {var searchedProperty = this.props.searches.getElementsByTagName("principal")[0]}
+        <SearchCard search={searchedProperty} />
+        {var compProperties = this.props.searches.getElementsByTagName("comparables")[1]}
         {this.props.searches.map(search => <SearchCard key={search.id} search={search} />)}
       </div>
     )
