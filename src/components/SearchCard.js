@@ -1,12 +1,11 @@
 import React from 'react';
 
-const SearchCard = ({ search }) => (
-  <div key={search.id}  className="HomeCard">
-    Search result
-
+const SearchCard = ({ street }) => (
+  // { search.childNodes[2].childNodes[0].innerHTML }
+  <div className="HomeCard">
+    <h3>Searched property</h3>
+    <p>{ street }</p>
   </div>
 )
 
-// <h3>{search.name}</h3>
-// <p>{search.address}</p>
 export default SearchCard;
