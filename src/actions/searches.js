@@ -8,6 +8,13 @@ const setSearches = searches => {
   }
 }
 
+const setComps = comps => {
+	return {
+		type: 'GET_COMPS_SUCCESS',
+		comps
+	}
+}
+
 // const addSearch = search => {
 //   return {
 //     type: 'CREATE_SEARCH_SUCCESS',
@@ -17,6 +24,7 @@ const setSearches = searches => {
 
 // ** Async Actions **
 export const getSearches = () => {
+  console.log("getSearches")
   return dispatch => (
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=2')
       .then(response => response.text())
@@ -53,10 +61,8 @@ export const getComps = () => {
 						addresses.push(address)
 					}
 					return addresses
-				}
-
-			)
-      .then(addresses => console.log(addresses))
+				})
+      .then(addresses => dispatch(setComps(addresses)))
       .catch(error => console.log(error))
   )
 }

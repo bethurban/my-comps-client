@@ -6,14 +6,11 @@ import SearchCard from '../components/SearchCard';
 class Searches extends Component {
   render() {
     // debugger
-    // {var searchedProperty = this.props.searches.getElementsByTagName("principal")[0]}
-    // {var compProperties = this.props.searches.getElementsByTagName("comparables")[1]}
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
         <SearchCard address={this.props.searches} />
-
       </div>
 
       // {this.props.searches.map(search => <SearchCard key={search.id} search={search} />)}
@@ -24,7 +21,8 @@ class Searches extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    searches: state.searches
+    searches: state.searches,
+    comps: state.comps
   })
 }
 

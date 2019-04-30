@@ -1,6 +1,8 @@
 const initialState = {
   street:'',
-  citystate: ''
+  city: '',
+  state: '',
+  zip: ''
 }
 
 export default (state = initialState, action) => {
