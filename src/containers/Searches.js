@@ -11,7 +11,7 @@ class Searches extends Component {
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
-        <SearchCard property={this.props.searches.search} />
+        <SearchCard property={this.props.searches.search} image={this.props.searches.searchImage} />
         {this.props.searches.comps.map(comp => <CompCard comp={comp} />)}
       </div>
     )
@@ -22,7 +22,8 @@ class Searches extends Component {
 const mapStateToProps = (state) => {
   return ({
     searches: state.searches,
-    comps: state.comps
+    comps: state.comps,
+    searchImage: state.searchImage
   })
 }
 
