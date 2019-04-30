@@ -1,5 +1,7 @@
 // import { resetSearchForm } from './searchForm';
 
+const ZWS_ID = process.env.REACT_APP_ZWS_ID
+
 // ** Action Creators **
 const setSearch = search => {
   return {
@@ -33,7 +35,7 @@ export const getSearch = () => {
   console.log("getSearch")
   var property = []
   return dispatch => (
-    fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=2')
+    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=48749425&count=2`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("principal")[0])
@@ -65,7 +67,7 @@ export const getComps = () => {
 	console.log("getComps")
 	var addresses = []
 	return dispatch => (
-    fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=2')
+    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=48749425&count=2`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("comp"))
@@ -105,7 +107,7 @@ export const getComps = () => {
 export const getSearchImage = () => {
   console.log("getSearchImage")
   return dispatch => (
-    fetch('http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425')
+    fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=48749425`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
       .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
