@@ -15,6 +15,12 @@ const setComps = comps => {
 	}
 }
 
+const setSearchImage = image => {
+  return {
+    type: 'GET_SEARCH_IMAGE_SUCCESS',
+    image
+  }
+}
 // const addSearch = search => {
 //   return {
 //     type: 'CREATE_SEARCH_SUCCESS',
@@ -91,8 +97,23 @@ export const getComps = () => {
 					}
 					return addresses
 				})
-
       .then(addresses => dispatch(setComps(addresses)))
+      .catch(error => console.log(error))
+  )
+}
+
+export const getSearchImage = () => {
+  console.log("getSearchImage")
+  return dispatch => (
+    fetch('http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425')
+      .then(response => response.text())
+      .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+      .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
+      .then(image => dispatch(setSearchImage(image)))
+			// .then(xml => {
+      //   var details = xml;
+      //   return details
+      // })
       .catch(error => console.log(error))
   )
 }

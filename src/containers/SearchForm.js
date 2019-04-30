@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateSearchFormData } from '../actions/searchForm';
 import { getSearch } from '../actions/searches';
 import { getComps } from '../actions/searches';
+import { getSearchImage } from '../actions/searches';
 
 class SearchForm extends Component {
 
@@ -18,6 +19,7 @@ class SearchForm extends Component {
     event.preventDefault()
     this.props.getSearch()
     this.props.getComps()
+    this.props.getSearchImage()
   }
 
   render() {
@@ -56,4 +58,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps })(SearchForm);
+export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps, getSearchImage })(SearchForm);
