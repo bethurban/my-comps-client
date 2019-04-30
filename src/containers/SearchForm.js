@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSearchFormData } from '../actions/searchForm';
-import { getSearches } from '../actions/searches';
+import { getSearch } from '../actions/searches';
 import { getComps } from '../actions/searches';
 
 class SearchForm extends Component {
@@ -16,7 +16,7 @@ class SearchForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.getSearches()
+    this.props.getSearch()
     this.props.getComps()
   }
 
@@ -56,4 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateSearchFormData, getSearches, getComps })(SearchForm);
+export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps })(SearchForm);

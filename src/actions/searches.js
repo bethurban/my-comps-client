@@ -1,10 +1,10 @@
 // import { resetSearchForm } from './searchForm';
 
 // ** Action Creators **
-const setSearches = searches => {
+const setSearch = search => {
   return {
-    type: 'GET_SEARCHES_SUCCESS',
-    searches
+    type: 'GET_SEARCH_SUCCESS',
+    search
   }
 }
 
@@ -23,8 +23,8 @@ const setComps = comps => {
 // }
 
 // ** Async Actions **
-export const getSearches = () => {
-  console.log("getSearches")
+export const getSearch = () => {
+  console.log("getSearch")
   return dispatch => (
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=2')
       .then(response => response.text())
@@ -38,7 +38,7 @@ export const getSearches = () => {
 				var address = street + " " + city + ", " + state + " " + zip
 				return address
 			})
-      .then(address => dispatch(setSearches(address)))
+      .then(address => dispatch(setSearch(address)))
       .catch(error => console.log(error))
   )
 }
