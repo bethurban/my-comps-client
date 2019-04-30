@@ -10,7 +10,7 @@ const SearchCard = ({ property, image }) => (
       </div>
       <div className="card__face card__face--back">
         <p>Year built: { property[1] }</p>
-        <p>Finished interior square feet: { property[2] }</p>
+        <p>Finished interior size: { property[2] } square feet</p>
         <p> { property[3] } bedrooms, { property[4] } bathrooms</p>
         <p> Lot size: { property[5] } square feet</p>
       </div>

@@ -10,7 +10,7 @@ const CompCard = ({ comp }) => (
       </div>
       <div className="card__face card__face--back">
         <p>Year built: { comp[1] }</p>
-        <p>Finished interior square feet: { comp[2] }</p>
+        <p>Finished interior size: { comp[2] } square feet</p>
         <p> { comp[3] } bedrooms, { comp[4] } bathrooms</p>
         <p> Lot size: { comp[5] } square feet</p>
       </div>

@@ -4,6 +4,7 @@ import { updateSearchFormData } from '../actions/searchForm';
 import { getSearch } from '../actions/searches';
 import { getComps } from '../actions/searches';
 import { getSearchImage } from '../actions/searches';
+import { getZPID } from '../actions/searches';
 
 class SearchForm extends Component {
 
@@ -17,23 +18,24 @@ class SearchForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.getSearch()
-    this.props.getComps()
-    this.props.getSearchImage()
+    this.props.getZPID(this.props.searchFormData)
+    // this.props.getSearch()
+    // this.props.getComps()
+    // this.props.getSearchImage()
   }
 
   render() {
-    const { street, citystate } = this.props.searchFormData;
+    const { address, citystate } = this.props.searchFormData;
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label htmlFor="street">Street: </label>
+            <label htmlFor="address">Street address: </label>
             <input
               type="text"
               onChange={this.handleOnChange}
-              name="street"
-              value={street}
+              name="address"
+              value={address}
             />
           </div>
           <div>
@@ -58,4 +60,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps, getSearchImage })(SearchForm);
+export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps, getSearchImage, getZPID })(SearchForm);

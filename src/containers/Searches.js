@@ -18,6 +18,7 @@ class Searches extends Component {
   }
 
   render() {
+    debugger
     var searchImageURL = this.props.searches.searchImage
     searchImageURL = searchImageURL.replace("<url>", "")
     searchImageURL = searchImageURL.replace("</url>", "")
