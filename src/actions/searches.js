@@ -37,18 +37,20 @@ export const getSearch = () => {
 				var state = xml.childNodes[2].childNodes[3].innerHTML
 				var zip = xml.childNodes[2].childNodes[1].innerHTML
 				var address = street + " " + city + ", " + state + " " + zip
-        return address
-        //property.push(address)
-        //return property
-				// return xml
-        // var yearBuilt = xml.childNodes[5].innerHTML
-        // var bathrooms = xml.childNodes[8].innerHTML
-        // var bedrooms = xml.childNodes[9].innerHTML
-        // var lotSize = xml.childNodes[6].innerHTML
-        // var sqFeet = xml.childNodes[7].innerHTML
+        property.push(address)
+        var yearBuilt = xml.childNodes[5].innerHTML
+        property.push(yearBuilt)
+        var sqFeet = xml.childNodes[7].innerHTML
+        property.push(sqFeet)
+        var bedrooms = xml.childNodes[9].innerHTML
+        property.push(bedrooms)
+        var bathrooms = xml.childNodes[8].innerHTML
+        property.push(bathrooms)
+        var lotSize = xml.childNodes[6].innerHTML
+        property.push(lotSize)
+        return property
 			})
-      // .then(property => dispatch(setSearch(property)))
-      .then(address => dispatch(setSearch(address)))
+      .then(property => dispatch(setSearch(property)))
       .catch(error => console.log(error))
   )
 }

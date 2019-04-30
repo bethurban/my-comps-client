@@ -11,7 +11,7 @@ class Searches extends Component {
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
-        <SearchCard address={this.props.searches.search} />
+        <SearchCard property={this.props.searches.search} />
         {this.props.searches.comps.map(comp => <CompCard comp={comp} />)}
       </div>
     )
