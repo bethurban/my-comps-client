@@ -1,13 +1,13 @@
 import React from 'react';
 
 const SearchCard = ({ property, image }) => (
-  <div className="SearchCard" ontouchstart="this.classList.toggle('hover');">
-    <div className="flipper">
-      <div className="front">
+  <div className="SearchCard">
+    <div className="card">
+      <div className="card__face card__face--front">
         <h3>Searched property</h3>
         <p>{ property[0] }</p>
       </div>
-      <div className="back">
+      <div className="card__face card__face--back">
         <p>Year built: { property[1] }</p>
         <p>Finished interior square feet: { property[2] }</p>
         <p> { property[3] } bedrooms, { property[4] } bathrooms</p>
