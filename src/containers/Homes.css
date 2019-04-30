@@ -1,5 +1,7 @@
 .homesContainer {
+  display: flex;
   padding: 16px;
+  justify-content: center;
 }
 
 .HomeCard {

@@ -1,5 +1,7 @@
 .searchesContainer {
+  display: flex;
   padding: 16px;
+  justify-content: center;
 }
 
 .SearchCard {
@@ -18,7 +20,7 @@
 }
 
 .CompCard {
-  float: left;
+  float: right;
   margin: 2%;
   width: 20.5%;
   padding: 3px;
