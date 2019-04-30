@@ -18,11 +18,14 @@ class Searches extends Component {
   }
 
   render() {
+    var searchImageURL = this.props.searches.searchImage
+    searchImageURL = searchImageURL.replace("<url>", "")
+    searchImageURL = searchImageURL.replace("</url>", "")
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
-        { this.props.searches.search ? <SearchCard property={this.props.searches.search} image={this.props.searches.searchImage} /> : null }
+        { this.props.searches.search ? <SearchCard property={this.props.searches.search} image={searchImageURL} /> : null }
         {this.props.searches.comps.map(comp => <CompCard comp={comp} />)}
       </div>
     )
