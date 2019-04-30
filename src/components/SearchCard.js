@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchCard = ({ property }) => (
-  <div className="HomeCard">
+  <div className="SearchCard">
     <h3>Searched property</h3>
     <p>{ property[0] }</p>
     <p>Year built: { property[1] }</p>

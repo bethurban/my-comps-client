@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CompCard = ({ comp }) => (
-  <div className="HomeCard">
+  <div className="CompCard">
     <h3>Comp</h3>
     <p>{ comp[0] }</p>
     <p>Last sold on { comp[6] } for ${ comp[7] }</p>
