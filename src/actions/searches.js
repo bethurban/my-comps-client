@@ -25,25 +25,12 @@ const setSearchImage = image => {
 }
 
 // ** Async Actions **
-export const getZPID = search => {
-  return dispatch => {
-    console.log("getting ZPID")
-    fetch(`http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
-      .then(response => response.text())
-      .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
-      .then(zpid => {
-        getSearch(zpid)
-        getSearchImage(zpid)
-      })
-      .catch(error => console.log(error))
-  }
-}
+
 
 export const getSearch = zpid => {
   console.log("getSearch", zpid)
   var property = []
-  var id = parseInt(zpid)
+  var id = encodeURIComponent(zpid)
   console.log("url: ", `http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
@@ -117,17 +104,29 @@ export const getComps = () => {
 
 export const getSearchImage = zpid => {
   console.log("getSearchImage")
-  var id = parseInt(zpid)
+  var id = encodeURIComponent(zpid)
+  console.log("image search:", `http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
       .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
       .then(image => dispatch(setSearchImage(image)))
-			// .then(xml => {
-      //   var details = xml;
-      //   return details
-      // })
       .catch(error => console.log(error))
   )
+}
+
+export const getZPID = search => {
+  return dispatch => {
+    console.log("getting ZPID")
+    fetch(`http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
+      .then(response => response.text())
+      .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+      .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
+      .then(zpid => {
+        dispatch(getSearch(zpid))
+        dispatch(getSearchImage(zpid))
+      })
+      .catch(error => console.log(error))
+  }
 }
