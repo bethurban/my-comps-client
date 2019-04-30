@@ -7,23 +7,8 @@ import './Searches.css';
 
 class Searches extends Component {
 
-  // componentDidMount(){
-  //   console.log("adding event listeners")
-  //   var cards = document.getElementsByClassName('card');
-  //   for(let i = 0; i < cards.length; i++) {
-  //     cards[i].addEventListener('click', function() {
-  //       cards[i].classList.toggle('is-flipped');
-  //     })
-  //   }
-  //   // Array.from(cards).forEach(card => {
-  //   //   card.addEventListener( 'click', function() {
-  //   //   card.classList.toggle('is-flipped');
-  //   //   });
-  //   // })
-  // }
-
   componentDidUpdate(){
-    console.log("adding event listeners again")
+    console.log("adding event listeners to cards")
     var cards = document.getElementsByClassName('card');
     for(let i = 0; i < cards.length; i++) {
       cards[i].addEventListener('click', function() {
@@ -37,7 +22,7 @@ class Searches extends Component {
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
-        <SearchCard property={this.props.searches.search} image={this.props.searches.searchImage} />
+        { this.props.searches.search ? <SearchCard property={this.props.searches.search} image={this.props.searches.searchImage} /> : null }
         {this.props.searches.comps.map(comp => <CompCard comp={comp} />)}
       </div>
     )
