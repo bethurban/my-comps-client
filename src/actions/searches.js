@@ -64,23 +64,34 @@ export const getComps = () => {
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("comp"))
 			.then(comps => {
+          var comparable = []
 					for (let comp of comps) {
+            comparable = []
 						var street = comp.childNodes[2].childNodes[0].innerHTML
 						var city = comp.childNodes[2].childNodes[2].innerHTML
 						var state = comp.childNodes[2].childNodes[3].innerHTML
 						var zip = comp.childNodes[2].childNodes[1].innerHTML
 						var address = street + " " + city + ", " + state + " " + zip
-						addresses.push(address)
+            comparable.push(address)
+            var yearBuilt = comp.childNodes[5].innerHTML
+            comparable.push(yearBuilt)
+            var sqFeet = comp.childNodes[7].innerHTML
+            comparable.push(sqFeet)
+            var bedrooms = comp.childNodes[9].innerHTML
+            comparable.push(bedrooms)
+            var bathrooms = comp.childNodes[8].innerHTML
+            comparable.push(bathrooms)
+            var lotSize = comp.childNodes[6].innerHTML
+            comparable.push(lotSize)
+            var lastSoldDate = comp.childNodes[10].innerHTML
+            comparable.push(lastSoldDate)
+            var lastSoldPrice = comp.childNodes[11].innerHTML
+            comparable.push(lastSoldPrice)
+						addresses.push(comparable)
 					}
 					return addresses
 				})
-      // var yearBuilt = xml.childNodes[5].innerHTML
-      // var bathrooms = xml.childNodes[8].innerHTML
-      // var bedrooms = xml.childNodes[9].innerHTML
-      // var lotSize = xml.childNodes[6].innerHTML
-      // var sqFeet = xml.childNodes[7].innerHTML
-      // var lastSoldDate = xml.childNodes[10].innerHTML
-      // var lastSoldPrice = xml.childNodes[11].innerHTML
+
       .then(addresses => dispatch(setComps(addresses)))
       .catch(error => console.log(error))
   )
