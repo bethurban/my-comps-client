@@ -6,7 +6,7 @@ import CompCard from '../components/CompCard';
 
 class Searches extends Component {
   render() {
-    // debugger
+    debugger
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>

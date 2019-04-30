@@ -25,6 +25,7 @@ const setComps = comps => {
 // ** Async Actions **
 export const getSearch = () => {
   console.log("getSearch")
+  var property = []
   return dispatch => (
     fetch('http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=X1-ZWz1h1ekqqlfrf_70ucn&zpid=48749425&count=2')
       .then(response => response.text())
@@ -36,8 +37,17 @@ export const getSearch = () => {
 				var state = xml.childNodes[2].childNodes[3].innerHTML
 				var zip = xml.childNodes[2].childNodes[1].innerHTML
 				var address = street + " " + city + ", " + state + " " + zip
-				return address
+        return address
+        //property.push(address)
+        //return property
+				// return xml
+        // var yearBuilt = xml.childNodes[5].innerHTML
+        // var bathrooms = xml.childNodes[8].innerHTML
+        // var bedrooms = xml.childNodes[9].innerHTML
+        // var lotSize = xml.childNodes[6].innerHTML
+        // var sqFeet = xml.childNodes[7].innerHTML
 			})
+      // .then(property => dispatch(setSearch(property)))
       .then(address => dispatch(setSearch(address)))
       .catch(error => console.log(error))
   )
@@ -62,6 +72,13 @@ export const getComps = () => {
 					}
 					return addresses
 				})
+      // var yearBuilt = xml.childNodes[5].innerHTML
+      // var bathrooms = xml.childNodes[8].innerHTML
+      // var bedrooms = xml.childNodes[9].innerHTML
+      // var lotSize = xml.childNodes[6].innerHTML
+      // var sqFeet = xml.childNodes[7].innerHTML
+      // var lastSoldDate = xml.childNodes[10].innerHTML
+      // var lastSoldPrice = xml.childNodes[11].innerHTML
       .then(addresses => dispatch(setComps(addresses)))
       .catch(error => console.log(error))
   )
