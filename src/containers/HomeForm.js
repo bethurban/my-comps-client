@@ -19,7 +19,7 @@
     }
 
     render() {
-      const { name, address } = this.props.homeFormData;
+      const { name, address, citystate } = this.props.homeFormData;
       return(
         <div>
           <h4>Save a new home</h4>
@@ -34,12 +34,21 @@
               />
             </div>
             <div>
-              <label htmlFor="address">Address: </label>
+              <label htmlFor="address">Street address: </label>
                 <input
                   type="text"
                   onChange={this.handleOnChange}
                   name="address"
                   value={address}
+                />
+            </div>
+            <div>
+              <label htmlFor="citystate">City, state: </label>
+                <input
+                  type="text"
+                  onChange={this.handleOnChange}
+                  name="citystate"
+                  value={citystate}
                 />
             </div>
             <button type="submit">Save home</button>
