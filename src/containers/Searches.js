@@ -10,10 +10,12 @@ class Searches extends Component {
   componentDidUpdate(){
     console.log("adding event listeners to cards")
     var cards = document.getElementsByClassName('card');
-    for(let i = 0; i < cards.length; i++) {
-      cards[i].addEventListener('click', function() {
-        cards[i].classList.toggle('is-flipped');
-      })
+    if (cards.length > 0) {
+      for(let i = 0; i < cards.length; i++) {
+        cards[i].addEventListener('click', function() {
+          cards[i].classList.toggle('is-flipped');
+        })
+      }
     }
   }
 
