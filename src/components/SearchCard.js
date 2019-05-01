@@ -5,7 +5,7 @@ const SearchCard = ({ property, image }) => (
     <div className="card">
       <div className="card__face card__face--front">
         <h3>Searched property</h3>
-        <img src={ image } alt={ property[0] } className="cardImage" />
+        <img src={ image } alt={ property[0] } className="cardImage" onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.dribbble.com/users/440793/screenshots/2744373/dribble.jpg"}} />
         <p>{ property[0] }</p>
       </div>
       <div className="card__face card__face--back">
