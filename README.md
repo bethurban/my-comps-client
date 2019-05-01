@@ -69,13 +69,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-Pull Zillow link outside of flipping area of cards
-To make saved search cards perform new search call
+Form validations and errors, including error message if no data returned on initial search
+Change routes to react-router
+Sign up (Google?)
+New default image if no image returned
+Sort out CSS to structure page correctly
 Add required Zillow logo, etc.
 Write 'about' text
-To change routes to react-router
-To plan out Google Maps inclusion
-To sort out CSS to structure page correctly
+Plan out Google Maps inclusion
 New app name?
-Form validations and errors
-Sign up (Google?)
