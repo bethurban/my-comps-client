@@ -25,6 +25,7 @@ const setSearchImage = image => {
 }
 
 const setCompImages = images => {
+  console.log("setting comp images")
   return {
     type: 'GET_COMP_IMAGES_SUCCESS',
     images
@@ -161,20 +162,14 @@ export const getSearchImage = zpid => {
 export const getCompImages = zpids => {
   console.log("getCompImages:", zpids)
   var compImages = []
-
-  // return dispatch => (
-  //   for(let i = 0; i < zpids.length; i++) {
-  //     var compId = encodeURIComponent(zpids[i])
-  //     return dispatch => (
-  //       fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${compId}`)
-  //         .then(response => response.text())
-  //         .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-  //         .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
-  //         .then(image => compImages.push(image))
-  //         .catch(error => console.log(error))
-  //     )
-  //   }
-  // )
+  Promise.all(zpids.map(id => fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
+    .then(response => response.text())
+    .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+    .then(xml => xml.getElementsByTagName("image")[0])
+    .then(image => compImages.push(image))
+  ))
+  console.log("comp images here:", compImages)
+  setCompImages(compImages)
 }
 
 export const getZPID = search => {
