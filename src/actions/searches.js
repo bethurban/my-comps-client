@@ -93,10 +93,21 @@ export const getComps = zpid => {
             comparable.push(bathrooms)
             var lotSize = comp.childNodes[6].innerHTML
             comparable.push(lotSize)
-            var lastSoldDate = comp.childNodes[10].innerHTML
-            comparable.push(lastSoldDate)
-            var lastSoldPrice = comp.childNodes[11].innerHTML
-            comparable.push(lastSoldPrice)
+            if (comp.childNodes[10].tagName === "totalRooms") {
+              var lastSoldDate = comp.childNodes[11].innerHTML
+              comparable.push(lastSoldDate)
+              var lastSoldPrice = comp.childNodes[12].innerHTML
+              comparable.push(lastSoldPrice)
+            } else {
+              lastSoldDate = comp.childNodes[10].innerHTML
+              comparable.push(lastSoldDate)
+              lastSoldPrice = comp.childNodes[11].innerHTML
+              comparable.push(lastSoldPrice)
+            }
+            var zillowLink = comp.childNodes[1].childNodes[0].innerHTML
+            comparable.push(zillowLink)
+            var zpid = comp.childNodes[0].innerHTML
+            comparable.push(zpid)
 						addresses.push(comparable)
 					}
 					return addresses

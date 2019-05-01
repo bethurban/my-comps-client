@@ -7,6 +7,7 @@ const CompCard = ({ comp }) => (
         <h3>Comp</h3>
         <p>{ comp[0] }</p>
         <p>Last sold on { comp[6] } for ${ comp[7] }</p>
+        <p><a href={ comp[8] } target="_blank">Zillow link</a></p>
       </div>
       <div className="card__face card__face--back">
         <p>Year built: { comp[1] }</p>
@@ -18,6 +19,6 @@ const CompCard = ({ comp }) => (
   </div>
 )
 
-// comp array = [address, yearBuilt, sqFeet, bedrooms, bathrooms, lotSize, lastSoldDate, lastSoldPrice]
+// comp array = [address, yearBuilt, sqFeet, bedrooms, bathrooms, lotSize, lastSoldDate, lastSoldPrice, zillowLink, zpid]
 
 export default CompCard;
