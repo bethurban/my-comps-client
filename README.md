@@ -68,11 +68,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-
 Need:
-To clear search form after submission
-To make saved search cards perform new search call
+To build out comps to display based on search
 Include link to Zillow page for each search and comp
+To make saved search cards perform new search call
 Add required Zillow logo, etc.
 Write 'about' text
 To change routes to react-router

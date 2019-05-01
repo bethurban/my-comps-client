@@ -31,7 +31,7 @@ export const getSearch = zpid => {
   console.log("getSearch", zpid)
   var property = []
   var id = encodeURIComponent(zpid)
-  console.log("url: ", `http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
+  console.log("url: ", `http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=1`)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
       .then(response => response.text())
@@ -64,11 +64,12 @@ export const getSearch = zpid => {
   )
 }
 
-export const getComps = () => {
+export const getComps = zpid => {
 	console.log("getComps")
 	var addresses = []
+  var id = encodeURIComponent(zpid)
 	return dispatch => (
-    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=48749425&count=5`)
+    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("comp"))
@@ -129,6 +130,7 @@ export const getZPID = search => {
       .then(zpid => {
         dispatch(getSearch(zpid))
         dispatch(getSearchImage(zpid))
+        dispatch(getComps(zpid))
       })
       .catch(error => console.log(error))
   }
