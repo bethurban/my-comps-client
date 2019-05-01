@@ -69,8 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-To build out comps to display based on search
-Include link to Zillow page for each search and comp
+Pull Zillow link outside of flipping area of cards
 To make saved search cards perform new search call
 Add required Zillow logo, etc.
 Write 'about' text
