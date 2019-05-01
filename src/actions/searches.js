@@ -25,11 +25,10 @@ const setSearchImage = image => {
 }
 
 // ** Async Actions **
-export const getSearch = zpid => {
+const getSearch = zpid => {
   var property = []
-  var id = encodeURIComponent(zpid)
   return dispatch => (
-    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
+    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${zpid}&count=5`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("principal")[0])
@@ -75,12 +74,11 @@ export const getSearch = zpid => {
   )
 }
 
-export const getComps = zpid => {
+const getComps = zpid => {
 	var addresses = []
   var zpids = []
-  var id = encodeURIComponent(zpid)
 	return dispatch => (
-    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
+    fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${zpid}&count=5`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("comp"))
@@ -129,7 +127,7 @@ export const getComps = zpid => {
   )
 }
 
-export const getSearchImage = zpid => {
+const getSearchImage = zpid => {
   var id = encodeURIComponent(zpid)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
