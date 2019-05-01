@@ -20,8 +20,11 @@ class Searches extends Component {
   render() {
     // debugger
     var searchImageURL = this.props.searches.searchImage
-    searchImageURL = searchImageURL.replace("<url>", "")
-    searchImageURL = searchImageURL.replace("</url>", "")
+    searchImageURL = searchImageURL.split("<url>")
+    if (searchImageURL.length > 1) {
+      searchImageURL = searchImageURL[1].replace("</url>", "")
+    }
+    console.log("searchImageURL: ", searchImageURL)
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
