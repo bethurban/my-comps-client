@@ -68,12 +68,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-1. Rename Searches to Homes
-2. Create new Searches container for Zillow search.
-  - Will need SearchForm
-  - Search cards/list component
 
 Need:
+To clear search form after submission
+To make saved search cards perform new search call
+Include link to Zillow page for each search and comp
+Add required Zillow logo, etc.
+Write 'about' text
 To change routes to react-router
 To plan out Google Maps inclusion
 To sort out CSS to structure page correctly

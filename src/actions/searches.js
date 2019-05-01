@@ -1,4 +1,4 @@
-// import { resetSearchForm } from './searchForm';
+import { resetSearchForm } from './searchForm';
 
 const ZWS_ID = process.env.REACT_APP_ZWS_ID
 
@@ -56,7 +56,10 @@ export const getSearch = zpid => {
         property.push(lotSize)
         return property
 			})
-      .then(property => dispatch(setSearch(property)))
+      .then(property => {
+        dispatch(setSearch(property))
+        dispatch(resetSearchForm())
+      })
       .catch(error => console.log(error))
   )
 }
