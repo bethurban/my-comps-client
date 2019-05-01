@@ -8,7 +8,6 @@ import './Searches.css';
 class Searches extends Component {
 
   componentDidUpdate(){
-    console.log("adding event listeners to cards")
     var cards = document.getElementsByClassName('card');
     if (cards.length > 0) {
       for(let i = 0; i < cards.length; i++) {
@@ -20,13 +19,12 @@ class Searches extends Component {
   }
 
   render() {
-    // debugger
     var searchImageURL = this.props.searches.searchImage
     searchImageURL = searchImageURL.split("<url>")
     if (searchImageURL.length > 1) {
       searchImageURL = searchImageURL[1].replace("</url>", "")
     }
-    console.log("searchImageURL: ", searchImageURL)
+
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>

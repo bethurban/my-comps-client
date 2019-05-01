@@ -24,22 +24,10 @@ const setSearchImage = image => {
   }
 }
 
-const setCompImages = images => {
-  console.log("setting comp images")
-  return {
-    type: 'GET_COMP_IMAGES_SUCCESS',
-    images
-  }
-}
-
 // ** Async Actions **
-
-
 export const getSearch = zpid => {
-  console.log("getSearch", zpid)
   var property = []
   var id = encodeURIComponent(zpid)
-  console.log("url: ", `http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=1`)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
       .then(response => response.text())
@@ -88,7 +76,6 @@ export const getSearch = zpid => {
 }
 
 export const getComps = zpid => {
-	console.log("getComps")
 	var addresses = []
   var zpids = []
   var id = encodeURIComponent(zpid)
@@ -135,20 +122,15 @@ export const getComps = zpid => {
             zpids.push(zpid)
 						addresses.push(comparable)
 					}
-					return [addresses, zpids]
+					return addresses
 				})
-      .then(info => {
-        dispatch(setComps(info[0]))
-        dispatch(getCompImages(info[1]))
-      })
+      .then(addresses => dispatch(setComps(addresses)))
       .catch(error => console.log(error))
   )
 }
 
 export const getSearchImage = zpid => {
-  console.log("getSearchImage")
   var id = encodeURIComponent(zpid)
-  console.log("image search:", `http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
       .then(response => response.text())
@@ -159,22 +141,19 @@ export const getSearchImage = zpid => {
   )
 }
 
-export const getCompImages = zpids => {
-  console.log("getCompImages:", zpids)
-  var compImages = []
-  Promise.all(zpids.map(id => fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
-    .then(response => response.text())
-    .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-    .then(xml => xml.getElementsByTagName("image")[0])
-    .then(image => compImages.push(image))
-  ))
-  console.log("comp images here:", compImages)
-  setCompImages(compImages)
-}
+// export const getCompImages = zpids => {
+//   var compImages = []
+//   Promise.all(zpids.map(id => fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
+//     .then(response => response.text())
+//     .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+//     // .then(xml => xml.getElementsByTagName("image")[0])
+//     .then(image => compImages.push(image.childNodes[0].childNodes[2].childNodes[4].innerHTML))
+//   )).then(values => {console.log("promise finished:", values)}).then(setCompImages(compImages))
+//   console.log("comp images here:", compImages)
+// }
 
 export const getZPID = search => {
   return dispatch => {
-    console.log("getting ZPID")
     fetch(`http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))

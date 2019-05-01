@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSearchFormData } from '../actions/searchForm';
-import { getSearch } from '../actions/searches';
-import { getComps } from '../actions/searches';
-import { getSearchImage } from '../actions/searches';
+// import { getSearch } from '../actions/searches';
+// import { getComps } from '../actions/searches';
+// import { getSearchImage } from '../actions/searches';
 import { getZPID } from '../actions/searches';
 
 class SearchForm extends Component {
@@ -57,4 +57,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateSearchFormData, getSearch, getComps, getSearchImage, getZPID })(SearchForm);
+export default connect(mapStateToProps, { updateSearchFormData, getZPID })(SearchForm);
