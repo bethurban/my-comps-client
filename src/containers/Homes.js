@@ -4,6 +4,7 @@ import './Homes.css';
 import HomeForm from './HomeForm';
 import HomeCard from '../components/HomeCard';
 import { getHomes } from '../actions/homes';
+import { getZPID } from '../actions/searches';
 
 class Homes extends Component  {
 
@@ -12,12 +13,14 @@ class Homes extends Component  {
   }
 
   render() {
+    // debugger
     return (
       <div className="HomesContainer">
         <h2>Saved searches</h2>
         <HomeForm />
-        {this.props.homes.map(home => <HomeCard key={home.id} home={home} />)}
-
+        {this.props.homes.map(home =>
+          <HomeCard key={home.id} home={home} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+        )}
       </div>
     );
   }
@@ -30,4 +33,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getHomes })(Homes);
+export default connect(mapStateToProps, { getHomes, getZPID })(Homes);
