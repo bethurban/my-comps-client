@@ -24,6 +24,13 @@ const setSearchImage = image => {
   }
 }
 
+const setCompImages = images => {
+  return {
+    type: 'GET_COMP_IMAGES_SUCCESS',
+    images
+  }
+}
+
 // ** Async Actions **
 
 
@@ -82,6 +89,7 @@ export const getSearch = zpid => {
 export const getComps = zpid => {
 	console.log("getComps")
 	var addresses = []
+  var zpids = []
   var id = encodeURIComponent(zpid)
 	return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${id}&count=5`)
@@ -123,11 +131,15 @@ export const getComps = zpid => {
             comparable.push(zillowLink)
             var zpid = comp.childNodes[0].innerHTML
             comparable.push(zpid)
+            zpids.push(zpid)
 						addresses.push(comparable)
 					}
-					return addresses
+					return [addresses, zpids]
 				})
-      .then(addresses => dispatch(setComps(addresses)))
+      .then(info => {
+        dispatch(setComps(info[0]))
+        dispatch(getCompImages(info[1]))
+      })
       .catch(error => console.log(error))
   )
 }
@@ -144,6 +156,25 @@ export const getSearchImage = zpid => {
       .then(image => dispatch(setSearchImage(image)))
       .catch(error => console.log(error))
   )
+}
+
+export const getCompImages = zpids => {
+  console.log("getCompImages:", zpids)
+  var compImages = []
+
+  // return dispatch => (
+  //   for(let i = 0; i < zpids.length; i++) {
+  //     var compId = encodeURIComponent(zpids[i])
+  //     return dispatch => (
+  //       fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${compId}`)
+  //         .then(response => response.text())
+  //         .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+  //         .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
+  //         .then(image => compImages.push(image))
+  //         .catch(error => console.log(error))
+  //     )
+  //   }
+  // )
 }
 
 export const getZPID = search => {

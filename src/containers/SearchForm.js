@@ -19,9 +19,6 @@ class SearchForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.getZPID(this.props.searchFormData)
-    // this.props.getSearch()
-    // this.props.getComps()
-    // this.props.getSearchImage()
   }
 
   render() {
