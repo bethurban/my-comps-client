@@ -54,6 +54,21 @@ export const getSearch = zpid => {
         property.push(bathrooms)
         var lotSize = xml.childNodes[6].innerHTML
         property.push(lotSize)
+        if (xml.childNodes[10].tagName === "totalRooms") {
+          var lastSoldDate = xml.childNodes[11].innerHTML
+          property.push(lastSoldDate)
+          var lastSoldPrice = xml.childNodes[12].innerHTML
+          property.push(lastSoldPrice)
+        } else {
+          lastSoldDate = xml.childNodes[10].innerHTML
+          property.push(lastSoldDate)
+          lastSoldPrice = xml.childNodes[11].innerHTML
+          property.push(lastSoldPrice)
+        }
+        var zillowLink = xml.childNodes[1].childNodes[0].innerHTML
+        property.push(zillowLink)
+        var zpid = xml.childNodes[0].innerHTML
+        property.push(zpid)
         return property
 			})
       .then(property => {
