@@ -70,7 +70,10 @@ const getSearch = zpid => {
         dispatch(setSearch(property))
         dispatch(resetSearchForm())
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+        alert('This address was entered incorrectly, or Zillow does not have information on this address.')
+      })
   )
 }
 
@@ -123,7 +126,10 @@ const getComps = zpid => {
 					return addresses
 				})
       .then(addresses => dispatch(setComps(addresses)))
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+        alert('Zillow does not have information on comparable properties for this address.')
+      })
   )
 }
 
