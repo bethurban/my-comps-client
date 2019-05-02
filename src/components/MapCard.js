@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-const MapCard = ({ lat, long }) => {
+const mapStyles = {
+  width: '20%',
+  height: '20%'
+};
 
-  // # var map;
-  // # function initMap() {
-  // #   map = new google.maps.Map(document.getElementById('map'), {
-  // #     center: {lat: {lat}, lng: {long}},
-  // #     zoom: 8
-  // #     });
-  // #   }
+export class MapCard extends Component {
 
-    return(
-      <div id="map">
-      Latitude: {lat}, longitude: {long}
-      </div>
-    )
+  render() {
+    // debugger
+      return (
+        <Map
+          google={this.props.google}
+          zoom={16}
+          style={mapStyles}
+          initialCenter={{
+           lat: this.props.lat,
+           lng: this.props.long
+          }}
+        />
+      );
+    }
 }
 
-export default MapCard;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDfi_GXxKbyTfmWeg-ier6N6H0F0--zEbs'
+})(MapCard);
