@@ -70,10 +70,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 Need:
 Error message if no data returned on initial search
-Change routes to react-router
-Add example text on form inputs
 Ability to delete saved searches
 Sign up (Google?)
+Only display Homes container if signed in
 New default image if no image returned
 Sort out CSS to structure page correctly
 Add required Zillow logo, etc.
