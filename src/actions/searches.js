@@ -98,9 +98,9 @@ const getComps = zpid => {
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("comp"))
 			.then(comps => {
-          var comparable = []
+          var comparable = {}
 					for (let comp of comps) {
-            comparable = []
+            comparable = {}
             var compArray = Array.from(comp.childNodes)
             var compAddressArray = Array.from(compArray.find(node => node.nodeName === 'address').childNodes)
             var compLinksArray = Array.from(compArray.find(node => node.nodeName === 'links').childNodes)
@@ -109,25 +109,39 @@ const getComps = zpid => {
             var state = compAddressArray.find(node => node.nodeName === 'state').innerHTML
             var zip = compAddressArray.find(node => node.nodeName === 'zipcode').innerHTML
             var address = street + " " + city + ", " + state + " " + zip
-            comparable.push(address)
-            var yearBuilt = compArray.find(node => node.nodeName === 'yearBuilt').innerHTML
-            comparable.push(yearBuilt)
-            var sqFeet = compArray.find(node => node.nodeName === 'finishedSqFt').innerHTML
-            comparable.push(sqFeet)
-            var bedrooms = compArray.find(node => node.nodeName === 'bedrooms').innerHTML
-            comparable.push(bedrooms)
-            var bathrooms = compArray.find(node => node.nodeName === 'bathrooms').innerHTML
-            comparable.push(bathrooms)
-            var lotSize = compArray.find(node => node.nodeName === 'lotSizeSqFt').innerHTML
-            comparable.push(lotSize)
-            var lastSoldDate = compArray.find(node => node.nodeName === 'lastSoldDate').innerHTML
-            comparable.push(lastSoldDate)
-            var lastSoldPrice = compArray.find(node => node.nodeName === 'lastSoldPrice').innerHTML
-            comparable.push(lastSoldPrice)
+            comparable.address = address
+            if (compArray.find(node => node.nodeName === 'yearBuilt')) {
+              var yearBuilt = compArray.find(node => node.nodeName === 'yearBuilt').innerHTML
+              comparable.yearBuilt = yearBuilt
+            }
+            if (compArray.find(node => node.nodeName === 'finishedSqFt')) {
+              var sqFeet = compArray.find(node => node.nodeName === 'finishedSqFt').innerHTML
+              comparable.sqFeet = sqFeet
+            }
+            if (compArray.find(node => node.nodeName === 'bedrooms')) {
+              var bedrooms = compArray.find(node => node.nodeName === 'bedrooms').innerHTML
+              comparable.bedrooms = bedrooms
+            }
+            if (compArray.find(node => node.nodeName === 'bathrooms')) {
+              var bathrooms = compArray.find(node => node.nodeName === 'bathrooms').innerHTML
+              comparable.bathrooms = bathrooms
+            }
+            if (compArray.find(node => node.nodeName === 'lotSizeSqFt')) {
+              var lotSize = compArray.find(node => node.nodeName === 'lotSizeSqFt').innerHTML
+              comparable.lotSize = lotSize
+            }
+            if (compArray.find(node => node.nodeName === 'lastSoldDate')) {
+              var lastSoldDate = compArray.find(node => node.nodeName === 'lastSoldDate').innerHTML
+              comparable.lastSoldDate = lastSoldDate
+            }
+            if (compArray.find(node => node.nodeName === 'lastSoldPrice')) {
+              var lastSoldPrice = compArray.find(node => node.nodeName === 'lastSoldPrice').innerHTML
+              comparable.lastSoldPrice = lastSoldPrice
+            }
             var zillowLink = compLinksArray.find(node => node.nodeName === 'homedetails').innerHTML
-            comparable.push(zillowLink)
+            comparable.zillowLink = zillowLink
             var zpid = compArray.find(node => node.nodeName === 'zpid').innerHTML
-            comparable.push(zpid)
+            comparable.zpid = zpid
             zpids.push(zpid)
 						addresses.push(comparable)
 					}
