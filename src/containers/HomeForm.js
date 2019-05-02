@@ -25,7 +25,7 @@
           <h4>Save a new home</h4>
           <form onSubmit={this.handleOnSubmit}>
             <div>
-              <label htmlFor="name">Name your home: </label>
+              <label htmlFor="name"><b>Name your home:</b> </label>
               <input
                 required
                 type="text"
@@ -35,7 +35,7 @@
               />
             </div>
             <div>
-              <label htmlFor="address">Street address: </label>
+              <label htmlFor="address"><b>Street address</b> <em>(Ex: 123 Main St.)</em><b>:</b> </label>
                 <input
                   required
                   type="text"
@@ -45,7 +45,7 @@
                 />
             </div>
             <div>
-              <label htmlFor="citystate">City, state: </label>
+              <label htmlFor="citystate"><b>City, state</b> <em>(Ex: Anytown, PA)</em><b>:</b> </label>
                 <input
                   required
                   type="text"
