@@ -7,7 +7,7 @@ import About from './components/About';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.js';
+import Navbar from './containers/Navbar.js';
 
 ReactDOM.render(
   <Provider store={store}>
