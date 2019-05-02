@@ -26,14 +26,15 @@ const setSearchImage = image => {
 
 // ** Async Actions **
 const getSearch = zpid => {
-  var property = []
+  // var property = []
+  var property = {}
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${zpid}&count=5`)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
 			.then(xml => xml.getElementsByTagName("principal")[0])
 			.then(xml => {
-       if (xml.childNodes) {
+        if (xml.childNodes) {
          var nodesArray = Array.from(xml.childNodes)
          var addressArray = Array.from(nodesArray.find(node => node.nodeName === 'address').childNodes)
          var linksArray = Array.from(nodesArray.find(node => node.nodeName === 'links').childNodes)
@@ -42,26 +43,40 @@ const getSearch = zpid => {
          var state = addressArray.find(node => node.nodeName === 'state').innerHTML
          var zip = addressArray.find(node => node.nodeName === 'zipcode').innerHTML
          var address = street + " " + city + ", " + state + " " + zip
-         property.push(address)
-         var yearBuilt = nodesArray.find(node => node.nodeName === 'yearBuilt').innerHTML
-         property.push(yearBuilt)
-         var sqFeet = nodesArray.find(node => node.nodeName === 'finishedSqFt').innerHTML
-         property.push(sqFeet)
-         var bedrooms = nodesArray.find(node => node.nodeName === 'bedrooms').innerHTML
-         property.push(bedrooms)
-         var bathrooms = nodesArray.find(node => node.nodeName === 'bathrooms').innerHTML
-         property.push(bathrooms)
-         var lotSize = nodesArray.find(node => node.nodeName === 'lotSizeSqFt').innerHTML
-         property.push(lotSize)
-         var lastSoldDate = nodesArray.find(node => node.nodeName === 'lastSoldDate').innerHTML
-         property.push(lastSoldDate)
-         var lastSoldPrice = nodesArray.find(node => node.nodeName === 'lastSoldPrice').innerHTML
-         property.push(lastSoldPrice)
+         property.address = address
+         if (nodesArray.find(node => node.nodeName === 'yearBuilt')) {
+           var yearBuilt = nodesArray.find(node => node.nodeName === 'yearBuilt').innerHTML
+           property.yearBuilt = yearBuilt
+         }
+         if (nodesArray.find(node => node.nodeName === 'finishedSqFt')) {
+           var sqFeet = nodesArray.find(node => node.nodeName === 'finishedSqFt').innerHTML
+           property.sqFeet = sqFeet
+         }
+         if (nodesArray.find(node => node.nodeName === 'bedrooms')) {
+           var bedrooms = nodesArray.find(node => node.nodeName === 'bedrooms').innerHTML
+           property.bedrooms = bedrooms
+         }
+         if (nodesArray.find(node => node.nodeName === 'bathrooms')) {
+           var bathrooms = nodesArray.find(node => node.nodeName === 'bathrooms').innerHTML
+           property.bathrooms = bathrooms
+         }
+         if (nodesArray.find(node => node.nodeName === 'lotSizeSqFt')) {
+           var lotSize = nodesArray.find(node => node.nodeName === 'lotSizeSqFt').innerHTML
+           property.lotSize = lotSize
+         }
+         if (nodesArray.find(node => node.nodeName === 'lastSoldDate')) {
+           var lastSoldDate = nodesArray.find(node => node.nodeName === 'lastSoldDate').innerHTML
+           property.lastSoldDate = lastSoldDate
+         }
+         if (nodesArray.find(node => node.nodeName === 'lastSoldPrice')) {
+           var lastSoldPrice = nodesArray.find(node => node.nodeName === 'lastSoldPrice').innerHTML
+           property.lastSoldPrice = lastSoldPrice
+         }
          var zillowLink = linksArray.find(node => node.nodeName === 'homedetails').innerHTML
-         property.push(zillowLink)
+         property.zillowLink = zillowLink
          var zpid = nodesArray.find(node => node.nodeName === 'zpid').innerHTML
-         property.push(zpid)
-         return property
+         property.zpid = zpid
+         return [property]
        }})
       .then(property => {
         dispatch(setSearch(property))

@@ -70,9 +70,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 Need:
 * Plan out Google Maps inclusion
-<!-- Sign up (Google?)
-Only display Homes container if signed in -->
-New default image if no image returned
+New default image if no image returned - or card resizes to no image at all?
 Sort out CSS to structure page correctly
 Add required Zillow logo, etc.
 New app name?
+
+TO ASK:
+How to use Google login to update loggedin state?
+How to only run getComps and getSearchImage if getSearch succeeds?
