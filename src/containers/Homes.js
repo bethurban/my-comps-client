@@ -5,6 +5,7 @@ import HomeForm from './HomeForm';
 import HomeCard from '../components/HomeCard';
 import { getHomes } from '../actions/homes';
 import { getZPID } from '../actions/searches';
+import { deleteHome } from '../actions/homes';
 
 class Homes extends Component  {
 
@@ -19,7 +20,7 @@ class Homes extends Component  {
         <h2>Saved searches</h2>
         <HomeForm />
         {this.props.homes.map(home =>
-          <HomeCard key={home.id} home={home} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+          <HomeCard key={home.id} home={home} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} deleteHome={this.props.deleteHome} />
         )}
       </div>
     );
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getHomes, getZPID })(Homes);
+export default connect(mapStateToProps, { getHomes, getZPID, deleteHome })(Homes);

@@ -17,6 +17,13 @@ const addHome = home => {
   }
 }
 
+export const deleteHome = home => {
+  return {
+    type: 'DELETE_HOME',
+    home
+  }
+}
+
 // ** Async Actions **
 export const getHomes = () => {
   return dispatch => (
