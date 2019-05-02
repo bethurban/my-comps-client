@@ -26,6 +26,7 @@ class SearchForm extends Component {
           <div>
             <label htmlFor="address">Street address: </label>
             <input
+              required
               type="text"
               onChange={this.handleOnChange}
               name="address"
@@ -35,6 +36,7 @@ class SearchForm extends Component {
           <div>
             <label htmlFor="citystate">City, state: </label>
             <input
+              required
               type="text"
               onChange={this.handleOnChange}
               name="citystate"
