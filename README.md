@@ -70,7 +70,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 Need:
 * Plan out Google Maps inclusion
-* Write 'about' text
 <!-- Sign up (Google?)
 Only display Homes container if signed in -->
 New default image if no image returned

@@ -28,7 +28,6 @@ class Navbar extends Component {
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
           />
-          <p>Should I stay or should I go?</p>
         </div>
       </nav>
     )
