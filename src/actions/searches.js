@@ -161,6 +161,9 @@ export const getZPID = search => {
         dispatch(getSearchImage(zpid))
         dispatch(getComps(zpid))
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log("error:", error)
+        alert('This address was entered incorrectly, or Zillow does not have information on this address.')
+      })
   }
 }

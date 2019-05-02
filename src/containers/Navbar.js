@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Navbar.css'
 import GoogleLogin from 'react-google-login';
 import { updateLogin } from '../actions/navbar';
@@ -34,4 +35,10 @@ class Navbar extends Component {
 
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return({
+    loggedIn: state.loggedIn
+  })
+}
+
+export default connect(mapStateToProps)(Navbar);
