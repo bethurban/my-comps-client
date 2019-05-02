@@ -24,10 +24,11 @@ class Navbar extends Component {
           <Link to='/about'>About</Link>
           <GoogleLogin
             clientId={GOOGLE_ID}
-            buttonText="Log in with Google"
+            buttonText="Log in"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
           />
+          <p>Should I stay or should I go?</p>
         </div>
       </nav>
     )

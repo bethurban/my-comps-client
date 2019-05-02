@@ -69,11 +69,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-* Ability to delete saved searches
 * Plan out Google Maps inclusion
 * Write 'about' text
-Sign up (Google?)
-Only display Homes container if signed in
+<!-- Sign up (Google?)
+Only display Homes container if signed in -->
 New default image if no image returned
 Sort out CSS to structure page correctly
 Add required Zillow logo, etc.
