@@ -42,6 +42,10 @@ const getSearch = zpid => {
          var city = addressArray.find(node => node.nodeName === 'city').innerHTML
          var state = addressArray.find(node => node.nodeName === 'state').innerHTML
          var zip = addressArray.find(node => node.nodeName === 'zipcode').innerHTML
+         var lat = addressArray.find(node => node.nodeName === 'latitude').innerHTML
+         property.lat = lat
+         var long = addressArray.find(node => node.nodeName === 'longitude').innerHTML
+         property.long = long
          var address = street + " " + city + ", " + state + " " + zip
          property.address = address
          if (nodesArray.find(node => node.nodeName === 'yearBuilt')) {

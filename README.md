@@ -69,6 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
+* add if statements to cards in case some data isn't present
 * Plan out Google Maps inclusion
 New default image if no image returned - or card resizes to no image at all?
 Sort out CSS to structure page correctly
