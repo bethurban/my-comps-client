@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './components/App';
+import About from './components/About';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+      <Router>
+        <Route exact path="/" component={App} />
+        <Route exact path="/about" component={About} />
+      </Router>
   </Provider>,
   document.getElementById('root')
 );
