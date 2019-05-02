@@ -17,7 +17,7 @@ const addHome = home => {
   }
 }
 
-export const deleteHome = home => {
+export const deleteSavedHome = home => {
   return {
     type: 'DELETE_HOME',
     home
@@ -48,6 +48,20 @@ export const createHome = home => {
         dispatch(addHome(home))
         dispatch(resetHomeForm())
       })
+      .catch(error => console.log(error))
+  }
+}
+
+export const deleteHome = home => {
+  return dispatch => {
+    return fetch(`${API_URL}/homes/${home}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id: home})
+    })
+      .then(dispatch(deleteSavedHome(home)))
       .catch(error => console.log(error))
   }
 }
