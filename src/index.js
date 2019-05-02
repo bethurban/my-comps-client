@@ -7,10 +7,12 @@ import About from './components/About';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './components/Navbar.js';
 
 ReactDOM.render(
   <Provider store={store}>
       <Router>
+        <Navbar />
         <Route exact path="/" component={App} />
         <Route exact path="/about" component={About} />
       </Router>
