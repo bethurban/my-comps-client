@@ -15,7 +15,8 @@ class Homes extends Component  {
   }
 
   render() {
-    // debugger
+    var id = 0
+
     return (
       <div className="HomesContainer">
         <h2>Saved searches</h2>
@@ -23,7 +24,7 @@ class Homes extends Component  {
         {this.props.homes.map(home =>
           <div>
           <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} />
-          <SavedSearchButton search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+          <SavedSearchButton key={id++} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
           </div>
         )}
       </div>
