@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Navbar.css'
 import GoogleLogin from 'react-google-login';
-import { updateLogin } from '../actions/navbar';
+// import { updateLogin } from '../actions/navbar';
 
 class Navbar extends Component {
 
