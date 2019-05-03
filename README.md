@@ -69,9 +69,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-* Add required Zillow logo, etc.
+* Google Maps?
 * Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
-Plan out Google Maps inclusion
 Sort out CSS to structure page correctly
 New app name?
 
@@ -79,4 +78,5 @@ TO ASK:
 How to only run getComps and getSearchImage if getSearch succeeds?
 Possible to hide an image tag if image is broken?
 How to flip cards back to front on reload?
-How to use Google login to update loggedin state?
+* How to use Google login to update loggedin state? Or better to use Rails backend & sessions to create users, sign them in?
+* Where to hide API keys?

@@ -9,12 +9,14 @@ import homes from './reducers/homes';
 import homeFormData from './reducers/homeFormData';
 import searches from './reducers/searches';
 import searchFormData from './reducers/searchFormData';
+import navbar from './reducers/navbar';
 
 const reducers = combineReducers({
   homes,
   homeFormData,
   searches,
-  searchFormData
+  searchFormData,
+  navbar
 });
 const middleware = [thunk];
 

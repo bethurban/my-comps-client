@@ -1,4 +1,7 @@
 export default (state = {loggedIn: false}, action) => {
+
+  console.log(action)
+  
   switch(action.type) {
 
     case 'UPDATED_LOGIN':

@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Navbar.css'
 import GoogleLogin from 'react-google-login';
-// import { updateLogin } from '../actions/navbar';
+import { updateLogin } from '../actions/navbar';
 
 class Navbar extends Component {
 
   render() {
+
     const GOOGLE_ID = process.env.REACT_APP_GOOGLE_ID
 
     const responseGoogle = (response) => {
-        console.log(response);
-        // if (response) {
-        //   this.props.updateLogin(true)
-        // }
+        if (response.googleId) {
+          this.props.updateLogin(true)
+        }
       }
 
     return(
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { updateLogin })(Navbar);
