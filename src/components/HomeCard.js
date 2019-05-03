@@ -1,11 +1,10 @@
 import React from 'react';
 
-const HomeCard = ({ home, search, getZPID, deleteHome }) => (
+const HomeCard = ({ home, deleteHome }) => (
   <div key={home.id}  className="HomeCard">
     <h3>{home.name}</h3>
     <p>{home.address}</p>
     <p>{home.citystate}</p>
-    <button onClick={() => getZPID(search)}>Search for comps</button>
     <button onClick={() => deleteHome(home.id)}>Delete this saved address</button>
   </div>
 )

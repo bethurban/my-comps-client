@@ -6,6 +6,7 @@ import HomeCard from '../components/HomeCard';
 import { getHomes } from '../actions/homes';
 import { getZPID } from '../actions/searches';
 import { deleteHome } from '../actions/homes';
+import SavedSearchButton from '../components/SavedSearchButton';
 
 class Homes extends Component  {
 
@@ -20,7 +21,10 @@ class Homes extends Component  {
         <h2>Saved searches</h2>
         <HomeForm />
         {this.props.homes.map(home =>
-          <HomeCard key={home.id} home={home} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} deleteHome={this.props.deleteHome} />
+          <div>
+          <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} />
+          <SavedSearchButton search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+          </div>
         )}
       </div>
     );

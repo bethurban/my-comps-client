@@ -12,6 +12,7 @@ class Navbar extends Component {
     const GOOGLE_ID = process.env.REACT_APP_GOOGLE_ID
 
     const responseGoogle = (response) => {
+      console.log(response)
       if (response.googleId) {this.props.updateLogin(true)
       }
     }
