@@ -69,10 +69,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-* add if statements to cards in case some data isn't present
-* sort comps by last sold date
-* Flip comp cards back to front with new search?
-* New default image if no image returned - or card resizes to no image at all?
 * Add required Zillow logo, etc.
 * Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
 Plan out Google Maps inclusion
@@ -80,5 +76,7 @@ Sort out CSS to structure page correctly
 New app name?
 
 TO ASK:
-How to use Google login to update loggedin state?
 How to only run getComps and getSearchImage if getSearch succeeds?
+Possible to hide an image tag if image is broken?
+How to flip cards back to front on reload?
+How to use Google login to update loggedin state?
