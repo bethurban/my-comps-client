@@ -5,6 +5,7 @@ import SearchCard from '../components/SearchCard';
 import MapCard from '../components/MapCard';
 import CompCard from '../components/CompCard';
 import './Searches.css';
+import Zillowlogo from '../Zillowlogo.gif';
 
 class Searches extends Component {
 
@@ -40,6 +41,7 @@ class Searches extends Component {
           </div>
           : null }
         {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}
+        <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
       </div>
     )
   }
