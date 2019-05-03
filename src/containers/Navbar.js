@@ -12,16 +12,16 @@ class Navbar extends Component {
     const GOOGLE_ID = process.env.REACT_APP_GOOGLE_ID
 
     const responseGoogle = (response) => {
-        if (response.googleId) {
-          this.props.updateLogin(true)
-        }
+      if (response.googleId) {this.props.updateLogin(true)
       }
+    }
 
     return(
       <nav className="topnav">
         <div className="container">
           <Link to='/' className="logo">My Comps</Link>
           <Link to='/about'>About</Link>
+          { this.props.loggedIn === true && <Link to='/saved'>Saved properties</Link> }
           <GoogleLogin
             clientId={GOOGLE_ID}
             buttonText="Log in"
@@ -37,7 +37,7 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
   return({
-    loggedIn: state.loggedIn
+    loggedIn: state.navbar.loggedIn
   })
 }
 

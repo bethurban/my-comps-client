@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './components/App';
 import About from './components/About';
+import Saved from './components/Saved';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Navbar />
         <Route exact path="/" component={App} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/saved" component={Saved} />
       </Router>
   </Provider>,
   document.getElementById('root')
