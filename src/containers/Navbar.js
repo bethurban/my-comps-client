@@ -12,9 +12,9 @@ class Navbar extends Component {
 
     const responseGoogle = (response) => {
         console.log(response);
-        if (response) {
-          this.props.updateLogin(true)
-        }
+        // if (response) {
+        //   this.props.updateLogin(true)
+        // }
       }
 
     return(
