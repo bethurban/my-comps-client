@@ -13,7 +13,13 @@ class Navbar extends Component {
 
     const responseGoogle = (response) => {
       console.log(response)
+      // debugger
       if (response.googleId) {this.props.updateLogin(true)
+        // if (response.googleId) {this.props.checkUser(response.profileObj.email)
+        // send user's google email to fetch action that will send it to db and check if already stored
+        // if already stored, loggedIn is set to true
+        // if not in db, user's email is stored and loggedIn is set to true
+        // rendering of saved searches only occurs if loggedIn is set to true
       }
     }
 

@@ -69,6 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
+* User signup and login. Possible to use returned google ids and store in db as saved users?
 * Google Maps?
 * Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
 Sort out CSS to structure page correctly
@@ -78,5 +79,4 @@ TO ASK:
 How to only run getComps and getSearchImage if getSearch succeeds?
 Possible to hide an image tag if image is broken?
 How to flip cards back to front on reload?
-* How to use Google login to update loggedin state? Or better to use Rails backend & sessions to create users, sign them in?
 * Where to hide API keys?
