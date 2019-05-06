@@ -11,12 +11,11 @@ import SavedSearchButton from '../components/SavedSearchButton';
 class Homes extends Component  {
 
   componentDidMount() {
-    this.props.getHomes()
+    this.props.getHomes(this.props.user)
   }
 
   render() {
     var id = 0
-
     return (
       <div className="HomesContainer">
         <h2>Saved searches</h2>
@@ -34,7 +33,8 @@ class Homes extends Component  {
 
 const mapStateToProps = (state) => {
   return ({
-    homes: state.homes
+    homes: state.homes,
+    user: state.user.user.id
   })
 }
 

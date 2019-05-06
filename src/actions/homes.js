@@ -25,9 +25,9 @@ export const deleteSavedHome = home => {
 }
 
 // ** Async Actions **
-export const getHomes = () => {
+export const getHomes = user => {
   return dispatch => (
-    fetch(`${API_URL}/homes`)
+    fetch(`${API_URL}/users/${user}/homes`)
       .then(resp => resp.json())
       .then(homes => dispatch(setHomes(homes)))
       .catch(error => console.log(error))
