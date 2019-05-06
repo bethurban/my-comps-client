@@ -22,7 +22,7 @@ class Homes extends Component  {
         <HomeForm />
         {this.props.homes.map(home =>
           <div>
-          <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} />
+          <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} user={this.props.user} />
           <SavedSearchButton key={id++} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
           </div>
         )}

@@ -52,9 +52,9 @@ export const createHome = (home, user) => {
   }
 }
 
-export const deleteHome = home => {
+export const deleteHome = (home, user) => {
   return dispatch => {
-    return fetch(`${API_URL}/homes/${home}`, {
+    return fetch(`${API_URL}/users/${user}/homes/${home}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
