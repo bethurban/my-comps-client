@@ -2,16 +2,10 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 // * Action Creators *
 
-const setUser = (users, email) => {
-  var foundUser = users.find(user => user.email === email)
-
-  if (foundUser) {
-    return {
-      type: 'SET_USER_SUCCESS',
-      foundUser
-    }
-  } else {
-    createUser(email)
+const setUser = user => {
+  return {
+    type: 'SET_USER_SUCCESS',
+    user
   }
 }
 
@@ -25,12 +19,19 @@ const addUser = user => {
 // * Async Actions *
 
 export const checkUser = email => {
-  return dispatch => (
+  return dispatch => {
     fetch(`${API_URL}/users`)
-    .then(resp => resp.json())
-    .then(users => dispatch(setUser(users, email)))
-    .catch(error => console.log(error))
-  )
+      .then(resp => resp.json())
+      .then(users => users.find(user => user.email === email))
+      .then(user => {
+        if(user) {
+          dispatch(setUser(user))
+        } else {
+          dispatch(createUser(email))
+        }
+      })
+      .catch(error => console.log(error))
+    }
 }
 
 const createUser = email => {
@@ -40,7 +41,7 @@ const createUser = email => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(email)
+      body: JSON.stringify({email: email})
     })
       .then(resp => resp.json())
       .then(user => dispatch(addUser(user)))
