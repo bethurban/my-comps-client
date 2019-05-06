@@ -23,7 +23,7 @@ class Homes extends Component  {
           <h2>Saved searches</h2>
           <HomeForm />
           {this.props.homes.map(home =>
-            <div>
+            <div key={id++}>
             <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} user={this.props.user} />
             <SavedSearchButton key={id++} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
             </div>
@@ -43,6 +43,5 @@ const mapStateToProps = (state) => {
     user: state.user.user.id
   })
 }
-
 
 export default connect(mapStateToProps, { getHomes, getZPID, deleteHome })(Homes);

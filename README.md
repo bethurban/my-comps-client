@@ -69,7 +69,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 Need:
-* User signup and login. Possible to use returned google ids and store in db as saved users?
 * Google Maps?
 * Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
 Sort out CSS to structure page correctly

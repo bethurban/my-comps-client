@@ -7,7 +7,7 @@ import About from './components/About';
 import Saved from './components/Saved';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './containers/Navbar.js';
 
 ReactDOM.render(
