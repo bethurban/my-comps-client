@@ -21,7 +21,6 @@ class Searches extends Component {
   }
 
   render() {
-    // debugger
     var searchImageURL = this.props.searches.searchImage
     searchImageURL = searchImageURL.split("<url>")
     if (searchImageURL.length > 1) {

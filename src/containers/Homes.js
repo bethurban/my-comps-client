@@ -18,14 +18,20 @@ class Homes extends Component  {
     var id = 0
     return (
       <div className="HomesContainer">
-        <h2>Saved searches</h2>
-        <HomeForm />
-        {this.props.homes.map(home =>
+        { this.props.user ?
           <div>
-          <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} user={this.props.user} />
-          <SavedSearchButton key={id++} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+          <h2>Saved searches</h2>
+          <HomeForm />
+          {this.props.homes.map(home =>
+            <div>
+            <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} user={this.props.user} />
+            <SavedSearchButton key={id++} search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={this.props.getZPID} />
+            </div>
+          )}
           </div>
-        )}
+        :
+          <h2>Please log in to save searches.</h2>
+      }
       </div>
     );
   }
