@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Navbar.css'
 import GoogleLogin from 'react-google-login';
-import { updateLogin } from '../actions/navbar';
+import { checkUser } from '../actions/navbar';
 
 class Navbar extends Component {
 
@@ -13,13 +13,8 @@ class Navbar extends Component {
 
     const responseGoogle = (response) => {
       console.log(response)
-      // debugger
-      if (response.googleId) {this.props.updateLogin(true)
-        // if (response.googleId) {this.props.checkUser(response.profileObj.email)
-        // send user's google email to fetch action that will send it to db and check if already stored
-        // if already stored, loggedIn is set to true
-        // if not in db, user's email is stored and loggedIn is set to true
-        // rendering of saved searches only occurs if loggedIn is set to true
+      if (response.profileObj.email) {
+        this.props.checkUser(response.profileObj.email)
       }
     }
 
@@ -28,7 +23,7 @@ class Navbar extends Component {
         <div className="container">
           <Link to='/' className="logo">My Comps</Link>
           <Link to='/about'>About</Link>
-          { this.props.loggedIn === true && <Link to='/saved'>Saved properties</Link> }
+          { this.props.user && <Link to='/saved'>Saved properties</Link> }
           <GoogleLogin
             clientId={GOOGLE_ID}
             buttonText="Log in"
@@ -44,8 +39,8 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
   return({
-    loggedIn: state.navbar.loggedIn
+    user: state.user.user
   })
 }
 
-export default connect(mapStateToProps, { updateLogin })(Navbar);
+export default connect(mapStateToProps, { checkUser })(Navbar);
