@@ -34,9 +34,9 @@ export const getHomes = user => {
   )
 }
 
-export const createHome = home => {
+export const createHome = (home, user) => {
   return dispatch => {
-    return fetch(`${API_URL}/homes`, {
+    return fetch(`${API_URL}/users/${user}/homes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

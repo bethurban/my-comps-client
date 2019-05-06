@@ -15,7 +15,7 @@
 
     handleOnSubmit = event => {
       event.preventDefault()
-      this.props.createHome(this.props.homeFormData)
+      this.props.createHome(this.props.homeFormData, this.props.user)
     }
 
     render() {
@@ -63,7 +63,8 @@
 
   const mapStateToProps = state => {
     return {
-      homeFormData: state.homeFormData
+      homeFormData: state.homeFormData,
+      user: state.user.user.id
     }
   }
 
