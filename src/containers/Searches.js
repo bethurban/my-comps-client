@@ -27,16 +27,27 @@ class Searches extends Component {
       searchImageURL = searchImageURL[1].replace("</url>", "")
     }
 
+    var mapInfo = []
+    if (this.props.searches.search && this.props.searches.comps.length > 0) {
+      mapInfo.push({lat: this.props.searches.search[0].lat, lng: this.props.searches.search[0].long})
+      for (let comp of this.props.searches.comps) {
+        mapInfo.push({lat: comp.lat, lng: comp.long})
+      }
+    }
+
     var id = 0;
 
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
         <SearchForm />
+        { mapInfo.length > 0 ?
+          <MapContainer key={2} lat={this.props.searches.search[0].lat} long={this.props.searches.search[0].long} mapInfo={mapInfo} />
+          : null
+        }
         { this.props.searches.search ?
           <div>
           <SearchCard key={1} property={this.props.searches.search} image={searchImageURL} />
-          <MapContainer key={2} lat={this.props.searches.search[0].lat} long={this.props.searches.search[0].long} />
           </div>
           : null }
         {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}

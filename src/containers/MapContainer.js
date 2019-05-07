@@ -7,7 +7,7 @@ export class MapContainer extends Component {
       width: '20%',
       height: '20%'
     }
-
+debugger
     return (
       <div className="map">
         <Map

@@ -112,6 +112,10 @@ const getComps = zpid => {
             var city = compAddressArray.find(node => node.nodeName === 'city').innerHTML
             var state = compAddressArray.find(node => node.nodeName === 'state').innerHTML
             var zip = compAddressArray.find(node => node.nodeName === 'zipcode').innerHTML
+            var lat = compAddressArray.find(node => node.nodeName === 'latitude').innerHTML
+            comparable.lat = lat
+            var long = compAddressArray.find(node => node.nodeName === 'longitude').innerHTML
+            comparable.long = long
             var address = street + " " + city + ", " + state + " " + zip
             comparable.address = address
             if (compArray.find(node => node.nodeName === 'yearBuilt')) {
