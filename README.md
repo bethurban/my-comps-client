@@ -67,15 +67,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-
-Need:
-* Google Maps?
-* Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
-Sort out CSS to structure page correctly
+Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
 New app name?
-
-TO ASK:
-How to only run getComps and getSearchImage if getSearch succeeds?
-Possible to hide an image tag if image is broken?
-How to flip cards back to front on reload?
-* Where to hide API keys?
+Where to put API keys?
