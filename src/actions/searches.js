@@ -17,16 +17,15 @@ const setComps = comps => {
 	}
 }
 
-const setSearchImage = image => {
-  return {
-    type: 'GET_SEARCH_IMAGE_SUCCESS',
-    image
-  }
-}
+// const setSearchImage = image => {
+//   return {
+//     type: 'GET_SEARCH_IMAGE_SUCCESS',
+//     image
+//   }
+// }
 
 // ** Async Actions **
 const getSearch = zpid => {
-  // var property = []
   var property = {}
   return dispatch => (
     fetch(`http://www.zillow.com/webservice/GetDeepComps.htm?zws-id=${ZWS_ID}&zpid=${zpid}&count=5`)
@@ -163,17 +162,17 @@ const getComps = zpid => {
   )
 }
 
-const getSearchImage = zpid => {
-  var id = encodeURIComponent(zpid)
-  return dispatch => (
-    fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
-      .then(response => response.text())
-      .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
-      .then(image => dispatch(setSearchImage(image)))
-      .catch(error => console.log(error))
-  )
-}
+// const getSearchImage = zpid => {
+//   var id = encodeURIComponent(zpid)
+//   return dispatch => (
+//     fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
+//       .then(response => response.text())
+//       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+//       .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
+//       .then(image => dispatch(setSearchImage(image)))
+//       .catch(error => console.log(error))
+//   )
+// }
 
 // export const getCompImages = zpids => {
 //   var compImages = []
@@ -195,7 +194,7 @@ export const getZPID = search => {
       .then(zpid => {
         dispatch(getSearch(zpid))
         //**** Want to only run the following if getSearch succeeds ****
-        dispatch(getSearchImage(zpid))
+        // dispatch(getSearchImage(zpid))
         dispatch(getComps(zpid))
       })
       .catch(error => {

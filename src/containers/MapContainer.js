@@ -15,7 +15,7 @@ export class MapContainer extends Component {
     }
 
     return (
-      <div className="map">
+      <div className="MapCard">
         <Map
           google={this.props.google}
           style={style}

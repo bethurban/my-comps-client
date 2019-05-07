@@ -20,15 +20,15 @@ const CompCard = ({ comp, number }) => {
     <div className="CompCard">
       <div className="card">
         <div className="card__face card__face--front">
-          <h4 className="compText">{ number }. { comp.address }</h4>
-          { comp.lastSoldDate && comp.lastSoldPrice && <p className="compText">Last sold on { comp.lastSoldDate } for ${ comp.lastSoldPrice }</p> }
+          <h4 className="cardText">{ number }. { comp.address } — <a href={ comp.zillowLink } target="_blank" rel="noopener noreferrer">Zillow link</a></h4>
+          { comp.lastSoldDate && comp.lastSoldPrice && <p className="cardText">Last sold on { comp.lastSoldDate } for ${ comp.lastSoldPrice }</p> }
         </div>
         <div className="card__face card__face--back">
-          { comp.lastSoldDate && comp.lastSoldPrice && <p className="compText">Last sold on { comp.lastSoldDate } for ${ comp.lastSoldPrice }</p> }
-          <p className="compText">{compString}</p>
+          { comp.lastSoldDate && comp.lastSoldPrice && <p className="cardText">Last sold on { comp.lastSoldDate } for ${ comp.lastSoldPrice }</p> }
+          <p className="cardText">{compString}</p>
         </div>
       </div>
-      <p><a href={ comp.zillowLink } target="_blank" rel="noopener noreferrer">Zillow link</a></p>
+
     </div>
   )
 }
