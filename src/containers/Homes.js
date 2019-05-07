@@ -10,7 +10,15 @@ import { deleteHome } from '../actions/homes';
 class Homes extends Component  {
 
   componentDidMount() {
-    this.props.getHomes(this.props.user)
+    if (this.props.user) {
+      this.props.getHomes(this.props.user)
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.props.getHomes(this.props.user)
+    }
   }
 
   render() {
