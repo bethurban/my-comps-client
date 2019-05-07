@@ -81,9 +81,3 @@
 .card.is-flipped {
   transform: rotateY(-180deg);
 }
-
-/* .cardImage {
-  float: left;
-  height: 40%;
-  width: 10%
-} */

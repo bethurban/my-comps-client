@@ -20,11 +20,6 @@ class Searches extends Component {
   }
 
   render() {
-    var searchImageURL = this.props.searches.searchImage
-    searchImageURL = searchImageURL.split("<url>")
-    if (searchImageURL.length > 1) {
-      searchImageURL = searchImageURL[1].replace("</url>", "")
-    }
 
     var mapInfo = []
     if (this.props.searches.search && this.props.searches.comps.length > 0) {
@@ -45,7 +40,7 @@ class Searches extends Component {
           : null
         }
         { this.props.searches.search ?
-          <SearchCard key={2} property={this.props.searches.search} image={searchImageURL} />
+          <SearchCard key={2} property={this.props.searches.search} />
           : null }
         {this.props.searches.comps.map((comp, index) => <CompCard key={id++} number={index + 1} comp={comp} />)}
       </div>
@@ -57,8 +52,7 @@ class Searches extends Component {
 const mapStateToProps = (state) => {
   return ({
     searches: state.searches,
-    comps: state.comps,
-    searchImage: state.searchImage
+    comps: state.comps
   })
 }
 

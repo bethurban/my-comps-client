@@ -17,13 +17,6 @@ const setComps = comps => {
 	}
 }
 
-// const setSearchImage = image => {
-//   return {
-//     type: 'GET_SEARCH_IMAGE_SUCCESS',
-//     image
-//   }
-// }
-
 // ** Async Actions **
 const getSearch = zpid => {
   var property = {}
@@ -162,29 +155,6 @@ const getComps = zpid => {
   )
 }
 
-// const getSearchImage = zpid => {
-//   var id = encodeURIComponent(zpid)
-//   return dispatch => (
-//     fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
-//       .then(response => response.text())
-//       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-//       .then(xml => xml.getElementsByTagName("image")[0].innerHTML)
-//       .then(image => dispatch(setSearchImage(image)))
-//       .catch(error => console.log(error))
-//   )
-// }
-
-// export const getCompImages = zpids => {
-//   var compImages = []
-//   Promise.all(zpids.map(id => fetch(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=${ZWS_ID}&zpid=${id}`)
-//     .then(response => response.text())
-//     .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-//     // .then(xml => xml.getElementsByTagName("image")[0])
-//     .then(image => compImages.push(image.childNodes[0].childNodes[2].childNodes[4].innerHTML))
-//   )).then(values => {console.log("promise finished:", values)}).then(setCompImages(compImages))
-//   console.log("comp images here:", compImages)
-// }
-
 export const getZPID = search => {
   return dispatch => {
     fetch(`http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
@@ -193,8 +163,6 @@ export const getZPID = search => {
       .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
       .then(zpid => {
         dispatch(getSearch(zpid))
-        //**** Want to only run the following if getSearch succeeds ****
-        // dispatch(getSearchImage(zpid))
         dispatch(getComps(zpid))
       })
       .catch(error => {

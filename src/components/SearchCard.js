@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchCard = ({ property, image }) => {
+const SearchCard = ({ property }) => {
   property = property[0]
 
   var propertyString = ""
@@ -34,7 +34,5 @@ const SearchCard = ({ property, image }) => {
     </div>
   )
 }
-
-// <img src={ image } alt={ property.address } className="cardImage" onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.dribbble.com/users/440793/screenshots/2744373/dribble.jpg"}} />
 
 export default SearchCard;
