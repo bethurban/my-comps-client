@@ -19,7 +19,6 @@ class Homes extends Component  {
       <div className="HomesContainer">
         { this.props.user ?
           <div>
-          <h2>Saved searches</h2>
           <HomeForm />
           {this.props.homes.map(home =>
             <div key={id + Math.random()}>

@@ -22,10 +22,10 @@
       const { name, address, citystate } = this.props.homeFormData;
       return(
         <div>
-          <h4>Save a new home</h4>
+          <h1>Save a new search</h1>
           <form onSubmit={this.handleOnSubmit}>
             <div>
-              <label htmlFor="name"><b>Name your home:</b> </label>
+              <label htmlFor="name"><b>Name this search:</b> </label>
               <input
                 required
                 type="text"

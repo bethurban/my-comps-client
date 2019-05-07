@@ -6,8 +6,9 @@ const HomeCard = ({ home, deleteHome, user, getZPID }) => (
     <h3>{home.name}</h3>
     <p>{home.address}</p>
     <p>{home.citystate}</p>
-    <button onClick={() => deleteHome(home.id, user)}>Delete this saved address</button>
-    <SavedSearchButton search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={getZPID} />
+    <p><SavedSearchButton search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={getZPID} /></p>
+    <p><button onClick={() => deleteHome(home.id, user)}>Delete this saved address</button></p>
+
   </div>
 )
 
