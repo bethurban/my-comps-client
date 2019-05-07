@@ -24,28 +24,27 @@ export class MapContainer extends Component {
            >
            <Marker
              name={'Searched property'}
-             position={this.props.mapInfo[0]}
-             icon={{ url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"}} />
+             position={this.props.mapInfo[0]} />
            <Marker
              name={'Comp 1'}
              position={this.props.mapInfo[1]}
-             icon={{ url: "http://maps.google.com/mapfiles/kml/paddle/1-lv.png"}} />
+             label={'1'} />
            <Marker
              name={'Comp 2'}
              position={this.props.mapInfo[2]}
-             icon={{ url: "http://maps.google.com/mapfiles/kml/paddle/2-lv.png"}} />
+             label={'2'} />
            <Marker
              name={'Comp 3'}
              position={this.props.mapInfo[3]}
-             icon={{ url: "http://maps.google.com/mapfiles/kml/paddle/3-lv.png"}} />
+             label={'3'} />
            <Marker
              name={'Comp 4'}
              position={this.props.mapInfo[4]}
-             icon={{ url: "http://maps.google.com/mapfiles/kml/paddle/4-lv.png"}} />
+             label={'4'} />
            <Marker
              name={'Comp 5'}
              position={this.props.mapInfo[5]}
-             icon={{ url: "http://maps.google.com/mapfiles/kml/paddle/5-lv.png"}} />
+             label={'5'} />
          </Map>
       </div>
     )

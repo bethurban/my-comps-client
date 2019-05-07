@@ -10,7 +10,6 @@ const HomeCard = ({ home, deleteHome, user, getZPID }) => (
     <SavedSearchButton search={Object.assign({}, {address: home.address, citystate: home.citystate})} getZPID={getZPID} />
     <br></br>
     <button className="myButton" onClick={() => deleteHome(home.id, user)}>Delete this saved address</button>
-
   </div>
 )
 
