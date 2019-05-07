@@ -48,7 +48,7 @@ class Searches extends Component {
         { this.props.searches.search ?
           <SearchCard key={2} property={this.props.searches.search} image={searchImageURL} />
           : null }
-        {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}
+        {this.props.searches.comps.map((comp, index) => <CompCard key={id++} number={index + 1} comp={comp} />)}
         <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
       </div>
     )

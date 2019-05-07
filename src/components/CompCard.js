@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompCard = ({ comp }) => {
+const CompCard = ({ comp, number }) => {
   var compString = ""
 
   if (comp.yearBuilt) {
@@ -20,7 +20,7 @@ const CompCard = ({ comp }) => {
     <div className="CompCard">
       <div className="card">
         <div className="card__face card__face--front">
-          <h4 className="compText">{ comp.address }</h4>
+          <h4 className="compText">{ number }. { comp.address }</h4>
           { comp.lastSoldDate && comp.lastSoldPrice && <p className="compText">Last sold on { comp.lastSoldDate } for ${ comp.lastSoldPrice }</p> }
         </div>
         <div className="card__face card__face--back">
