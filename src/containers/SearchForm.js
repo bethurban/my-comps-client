@@ -44,7 +44,7 @@ class SearchForm extends Component {
               value={citystate}
             />
           </div>
-          <button type="submit">Search for comparable properties</button>
+          <button type="submit" className="myButton">Search for comparable properties</button>
         </form>
         <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
       </div>

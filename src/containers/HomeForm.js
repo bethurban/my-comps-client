@@ -2,6 +2,7 @@
   import { connect } from 'react-redux';
   import { updateHomeFormData } from '../actions/homeForm';
   import { createHome } from '../actions/homes'
+  import './Button.css';
 
   class HomeForm extends Component {
 
@@ -54,7 +55,7 @@
                   value={citystate}
                 />
             </div>
-            <button type="submit">Save home</button>
+            <button type="submit" className="myButton">Save home</button>
           </form>
         </div>
       );
