@@ -5,7 +5,6 @@ import SearchCard from '../components/SearchCard';
 import MapContainer from '../containers/MapContainer';
 import CompCard from '../components/CompCard';
 import './Searches.css';
-import Zillowlogo from '../Zillowlogo.gif';
 
 class Searches extends Component {
 
@@ -49,7 +48,6 @@ class Searches extends Component {
           <SearchCard key={2} property={this.props.searches.search} image={searchImageURL} />
           : null }
         {this.props.searches.comps.map((comp, index) => <CompCard key={id++} number={index + 1} comp={comp} />)}
-        <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
       </div>
     )
   }

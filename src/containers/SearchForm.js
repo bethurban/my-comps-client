@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSearchFormData } from '../actions/searchForm';
 import { getZPID } from '../actions/searches';
+import Zillowlogo from '../Zillowlogo.gif';
 
 class SearchForm extends Component {
 
@@ -45,6 +46,7 @@ class SearchForm extends Component {
           </div>
           <button type="submit">Search for comparable properties</button>
         </form>
+        <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
       </div>
     )
   }
