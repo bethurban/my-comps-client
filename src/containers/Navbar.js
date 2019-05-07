@@ -21,13 +21,15 @@ class Navbar extends Component {
 
     return(
       <nav className="topnav">
-        <div className="container">
+        <div className="topnav-left">
           <Link to='/' className="logo">My Comps</Link>
           <Link to='/about'>About</Link>
           { this.props.user && <Link to='/saved'>Saved properties</Link> }
+        </div>
+        <div className="topnav-right">
           <GoogleLogin
             clientId={GOOGLE_ID}
-            buttonText="Log in"
+            buttonText="Log in with Google to save your searches"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
           />

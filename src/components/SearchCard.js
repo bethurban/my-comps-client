@@ -22,7 +22,7 @@ const SearchCard = ({ property, image }) => {
     <div className="SearchCard">
       <div className="card">
         <div className="card__face card__face--front">
-          <h4 className="cardText"><a href={ property.zillowLink } target="_blank" rel="noopener noreferrer">{ property.address }</a></h4>
+          <h4 className="cardText"><a href={ property.zillowLink } target="_blank" rel="noopener noreferrer" className="card-link">{ property.address }</a></h4>
           { property.lastSoldDate && property.lastSoldPrice && <p className="cardText">Last sold on { property.lastSoldDate } for ${ property.lastSoldPrice }</p> }
           <p className="cardText"><em>Click cards for more details.</em></p>
         </div>
