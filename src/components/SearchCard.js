@@ -7,7 +7,6 @@ const SearchCard = ({ property, image }) => {
       <div className="card">
         <div className="card__face card__face--front">
           <h3>Searched property</h3>
-          <img src={ image } alt={ property.address } className="cardImage" onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.dribbble.com/users/440793/screenshots/2744373/dribble.jpg"}} />
           <h4>{ property.address }</h4>
           { property.lastSoldDate && property.lastSoldPrice && <p>Last sold on { property.lastSoldDate } for ${ property.lastSoldPrice }</p> }
           <p><a href={ property.zillowLink } target="_blank" rel="noopener noreferrer">Zillow link</a></p>
@@ -24,5 +23,7 @@ const SearchCard = ({ property, image }) => {
     </div>
   )
 }
+
+// <img src={ image } alt={ property.address } className="cardImage" onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.dribbble.com/users/440793/screenshots/2744373/dribble.jpg"}} />
 
 export default SearchCard;

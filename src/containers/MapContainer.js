@@ -4,17 +4,23 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     const style = {
-      width: '100%',
-      height: '100%'
+      width: '40%',
+      height: '80%'
     }
-// debugger
+
+    var points = this.props.mapInfo
+    var bounds = new this.props.google.maps.LatLngBounds();
+    for (var i = 0; i < points.length; i++) {
+      bounds.extend(points[i]);
+    }
+
     return (
       <div className="map">
         <Map
           google={this.props.google}
           style={style}
           initialCenter={this.props.mapInfo[0]}
-          zoom={15}
+          bounds={bounds}
            >
            <Marker
              name={'Searched property'}

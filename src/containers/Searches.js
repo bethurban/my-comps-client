@@ -29,9 +29,9 @@ class Searches extends Component {
 
     var mapInfo = []
     if (this.props.searches.search && this.props.searches.comps.length > 0) {
-      mapInfo.push({lat: this.props.searches.search[0].lat, lng: this.props.searches.search[0].long})
+      mapInfo.push({lat: parseFloat(this.props.searches.search[0].lat), lng: parseFloat(this.props.searches.search[0].long)})
       for (let comp of this.props.searches.comps) {
-        mapInfo.push({lat: comp.lat, lng: comp.long})
+        mapInfo.push({lat: parseFloat(comp.lat), lng: parseFloat(comp.long)})
       }
     }
 
@@ -42,11 +42,11 @@ class Searches extends Component {
         <h1>Search for Comps</h1>
         <SearchForm />
         { mapInfo.length > 0 ?
-          <MapContainer key={2} mapInfo={mapInfo} />
+          <MapContainer key={1} mapInfo={mapInfo} />
           : null
         }
         { this.props.searches.search ?
-          <SearchCard key={1} property={this.props.searches.search} image={searchImageURL} />
+          <SearchCard key={2} property={this.props.searches.search} image={searchImageURL} />
           : null }
         {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}
         <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
