@@ -42,13 +42,11 @@ class Searches extends Component {
         <h1>Search for Comps</h1>
         <SearchForm />
         { mapInfo.length > 0 ?
-          <MapContainer key={2} lat={this.props.searches.search[0].lat} long={this.props.searches.search[0].long} mapInfo={mapInfo} />
+          <MapContainer key={2} mapInfo={mapInfo} />
           : null
         }
         { this.props.searches.search ?
-          <div>
           <SearchCard key={1} property={this.props.searches.search} image={searchImageURL} />
-          </div>
           : null }
         {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}
         <p><img src={Zillowlogo} alt="Real Estate on Zillow" /></p>
