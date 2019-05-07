@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import SearchCard from '../components/SearchCard';
-import MapCard from '../components/MapCard';
+import MapContainer from '../containers/MapContainer';
 import CompCard from '../components/CompCard';
 import './Searches.css';
 import Zillowlogo from '../Zillowlogo.gif';
@@ -36,7 +36,7 @@ class Searches extends Component {
         { this.props.searches.search ?
           <div>
           <SearchCard key={1} property={this.props.searches.search} image={searchImageURL} />
-          <MapCard key={2} lat={this.props.searches.search[0].lat} long={this.props.searches.search[0].long} />
+          <MapContainer key={2} lat={this.props.searches.search[0].lat} long={this.props.searches.search[0].long} />
           </div>
           : null }
         {this.props.searches.comps.map(comp => <CompCard key={id++} comp={comp} />)}
