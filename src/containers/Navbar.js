@@ -12,10 +12,10 @@ class Navbar extends Component {
     const GOOGLE_ID = process.env.REACT_APP_GOOGLE_ID
 
     const responseGoogle = (response) => {
-      if (response.profileObj.email) {
+      if (response.profileObj) {
         this.props.checkUser(response.profileObj.email)
-      } else {
-        alert('Login failed. Please try again.')
+      } else if (response.error) {
+        alert('Google login failed. Please try again.')
       }
     }
 
