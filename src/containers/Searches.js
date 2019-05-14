@@ -9,7 +9,7 @@ import './Searches.css';
 class Searches extends Component {
 
   componentDidUpdate(){
-    var cards = document.getElementsByClassName('card');
+    let cards = document.getElementsByClassName('card');
     if (cards.length > 0) {
       for(let i = 0; i < cards.length; i++) {
         cards[i].onclick = function() {
@@ -21,7 +21,7 @@ class Searches extends Component {
 
   render() {
 
-    var mapInfo = []
+    let mapInfo = []
     if (this.props.searches.search && this.props.searches.comps.length > 0) {
       mapInfo.push({lat: parseFloat(this.props.searches.search[0].lat), lng: parseFloat(this.props.searches.search[0].long)})
       for (let comp of this.props.searches.comps) {

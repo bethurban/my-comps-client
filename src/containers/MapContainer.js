@@ -8,9 +8,9 @@ export class MapContainer extends Component {
       height: '80%'
     }
 
-    var points = this.props.mapInfo
-    var bounds = new this.props.google.maps.LatLngBounds();
-    for (var i = 0; i < points.length; i++) {
+    let points = this.props.mapInfo
+    let bounds = new this.props.google.maps.LatLngBounds();
+    for (let i = 0; i < points.length; i++) {
       bounds.extend(points[i]);
     }
 

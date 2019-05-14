@@ -22,18 +22,15 @@ class Homes extends Component  {
   }
 
   render() {
-    var id = 0
     return (
       <div className="HomesContainer">
         { this.props.user ?
           <div>
           <HomeForm />
           {this.props.homes.map(home =>
-            <div key={id + Math.random()}>
             <HomeCard key={home.id} home={home} deleteHome={this.props.deleteHome} user={this.props.user} getZPID={this.props.getZPID} />
-            </div>
           )}
-          </div>
+        </div>
         :
           <h2>Please log in to save searches.</h2>
       }

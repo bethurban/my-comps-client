@@ -3,7 +3,7 @@ import React from 'react';
 const SearchCard = ({ property }) => {
   property = property[0]
 
-  var propertyString = ""
+  let propertyString = ""
 
   if (property.yearBuilt) {
     propertyString += `Built in ${property.yearBuilt}. `

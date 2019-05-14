@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CompCard = ({ comp, number }) => {
-  var compString = ""
+  let compString = ""
 
   if (comp.yearBuilt) {
     compString += `Built in ${comp.yearBuilt}. `
