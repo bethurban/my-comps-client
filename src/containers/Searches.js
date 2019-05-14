@@ -29,8 +29,6 @@ class Searches extends Component {
       }
     }
 
-    var id = 0;
-
     return (
       <div className="SearchesContainer">
         <h1>Search for Comps</h1>
@@ -40,9 +38,9 @@ class Searches extends Component {
           : null
         }
         { this.props.searches.search ?
-          <SearchCard key={2} property={this.props.searches.search} />
+          <SearchCard key={this.props.searches.search[0].zpid} property={this.props.searches.search} />
           : null }
-        {this.props.searches.comps.map((comp, index) => <CompCard key={id++} number={index + 1} comp={comp} />)}
+        {this.props.searches.comps.map((comp, index) => <CompCard key={comp.zpid} number={index + 1} comp={comp} />)}
       </div>
     )
   }
