@@ -5,7 +5,6 @@ export default (state = {user: ''}, action) => {
       return {...state, user: action.user}
 
     case 'CREATE_USER_SUCCESS':
-    debugger
       return {...state, user: action.user}
 
     default:
