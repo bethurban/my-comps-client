@@ -10,6 +10,8 @@ import store from './store.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './containers/Navbar.js';
 
+require('dotenv').config()
+
 ReactDOM.render(
   <Provider store={store}>
       <Router>
