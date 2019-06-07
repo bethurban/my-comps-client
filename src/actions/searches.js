@@ -157,16 +157,17 @@ const getComps = zpid => {
 export const getZPID = search => {
   return dispatch => {
     fetch(`https://cors-anywhere.herokuapp.com/www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
-      .then(response => response.text())
-      .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
-      .then(zpid => {
-        dispatch(getSearch(zpid))
-        dispatch(getComps(zpid))
-      })
-      .catch(error => {
-        console.log(error)
-        alert('This address was entered incorrectly, or Zillow does not have information on this address.')
-      })
+    debugger
+      // .then(response => response.text())
+      // .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
+      // .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
+      // .then(zpid => {
+      //   dispatch(getSearch(zpid))
+      //   dispatch(getComps(zpid))
+      // })
+      // .catch(error => {
+      //   console.log(error)
+      //   alert('This address was entered incorrectly, or Zillow does not have information on this address.')
+      // })
   }
 }
