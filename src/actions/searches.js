@@ -155,8 +155,14 @@ const getComps = zpid => {
 }
 
 export const getZPID = search => {
+  var request = new Request(`https://cors-anywhere.herokuapp.com/https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`, {
+    headers: new Headers({
+      'X-Requested-With': 'XMLHttpRequest'
+    })
+  });
+
   return dispatch => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${ZWS_ID}&address=${encodeURIComponent(search.address)}&citystatezip=${encodeURIComponent(search.citystate)}`)
+    fetch(request)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
       .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
