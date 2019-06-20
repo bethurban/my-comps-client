@@ -20,7 +20,7 @@ const addUser = user => {
 
 export const checkUser = email => {
   return dispatch => {
-    fetch(`${API_URL}/users`)
+    fetch(`${API_URL}users`)
       .then(resp => resp.json())
       .then(users => users.find(user => user.email === email))
       .then(user => {
@@ -36,7 +36,7 @@ export const checkUser = email => {
 
 const createUser = email => {
   return dispatch => {
-    return fetch(`${API_URL}/users`, {
+    return fetch(`${API_URL}users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
