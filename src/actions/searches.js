@@ -160,7 +160,7 @@ export const getZPID = search => {
       'X-Requested-With': 'XMLHttpRequest'
     })
   });
-  console.log("Here's the zws: ", process.env.ZWS_ID)
+  console.log("Here's the zws: ", process.env.REACT_APP_ZWS_ID)
   return dispatch => {
     fetch(request)
       .then(response => response.text())
