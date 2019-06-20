@@ -160,21 +160,19 @@ export const getZPID = search => {
       'X-Requested-With': 'XMLHttpRequest'
     })
   });
-  console.log("Here's the zws: ", ZWS_ID)
+
   return dispatch => {
     fetch(request)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => console.log("Here's the xml: ", xml))
-      // debugger
-      // .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
-      // .then(zpid => {
-      //   dispatch(getSearch(zpid))
-      //   dispatch(getComps(zpid))
-      // })
-      // .catch(error => {
-      //   console.log(error)
-      //   alert('This address was entered incorrectly, or Zillow does not have information on this address.')
-      // })
+      .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
+      .then(zpid => {
+        dispatch(getSearch(zpid))
+        dispatch(getComps(zpid))
+      })
+      .catch(error => {
+        console.log(error)
+        alert('This address was entered incorrectly, or Zillow does not have information on this address.')
+      })
   }
 }
