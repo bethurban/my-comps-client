@@ -1,6 +1,9 @@
 {
   "name": "my-comps-client",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.15.1"
+  },
   "private": true,
   "dependencies": {
     "dotenv": "^8.0.0",
