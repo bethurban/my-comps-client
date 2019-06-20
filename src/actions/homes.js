@@ -27,7 +27,7 @@ export const deleteSavedHome = home => {
 // ** Async Actions **
 export const getHomes = user => {
   return dispatch => (
-    fetch(`${API_URL}/users/${user}/homes`)
+    fetch(`${API_URL}/api/users/${user}/homes`)
       .then(resp => resp.json())
       .then(homes => dispatch(setHomes(homes)))
       .catch(error => console.log(error))
@@ -36,7 +36,7 @@ export const getHomes = user => {
 
 export const createHome = (home, user) => {
   return dispatch => {
-    return fetch(`${API_URL}/users/${user}/homes`, {
+    return fetch(`${API_URL}/api/users/${user}/homes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export const createHome = (home, user) => {
 
 export const deleteHome = (home, user) => {
   return dispatch => {
-    return fetch(`${API_URL}/users/${user}/homes/${home}`, {
+    return fetch(`${API_URL}/api/users/${user}/homes/${home}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
