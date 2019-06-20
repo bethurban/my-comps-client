@@ -165,8 +165,8 @@ export const getZPID = search => {
     fetch(request)
       .then(response => response.text())
       .then(text => (new window.DOMParser()).parseFromString(text, "text/xml"))
-      .then(xml => console.log(xml))
-      debugger
+      .then(xml => console.log("Here's the xml: ", xml))
+      // debugger
       // .then(xml => xml.getElementsByTagName("zpid")[0].innerHTML)
       // .then(zpid => {
       //   dispatch(getSearch(zpid))
