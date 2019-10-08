@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To use this app, first clone my-comps-api (https://github.com/bethurban/my-comps-api). Then run 'bundle install' and 'rails s -p 3001'.
 
-Then clone this repo, run 'bundle install', and run 'yarn start.'
+Then clone this repo, run 'yarn install', and run 'yarn start.'
 
 ## Contributing
 
