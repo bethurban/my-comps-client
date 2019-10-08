@@ -27,12 +27,21 @@ class Navbar extends Component {
           { this.props.user && <Link to='/saved'>Saved properties</Link> }
         </div>
         <div className="topnav-right">
-          <GoogleLogin
-            clientId={GOOGLE_ID}
-            buttonText="Log in with Google to save your searches"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-          />
+          { this.props.user ?
+            <GoogleLogin
+              clientId={GOOGLE_ID}
+              buttonText="You are logged in via Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+            />
+          :
+            <GoogleLogin
+              clientId={GOOGLE_ID}
+              buttonText="Log in with Google to save your searches"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+            />
+          }
         </div>
       </nav>
     )
