@@ -1,0 +1,2 @@
+- Add edit functionality to HomeCard
+- Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?

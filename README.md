@@ -25,9 +25,3 @@ to make via issue, email, or any other method with the owner of this repository.
 
 This project has been licensed under the MIT open source license:
 https://github.com/bethurban/my-comps-client/blob/master/LICENSE
-
-
-
-
-- Refactor getSearch and getComps - possible to iterate over XML array and pull nodeNames and innerHTMLs?
-- New app name?
